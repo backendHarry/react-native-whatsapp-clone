@@ -1,5 +1,5 @@
 import { Redirect } from "expo-router";
 
 export default Index = () => {
-  <Redirect href="/chats" />;
+  return <Redirect href="/chats" />;
 };
