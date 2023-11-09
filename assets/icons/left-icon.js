@@ -15,6 +15,7 @@ export default LeftIcon = (props) => {
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+        {...props}
       />
     </Svg>
   );

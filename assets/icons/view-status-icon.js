@@ -16,6 +16,7 @@ export default ViewStatus = (props) => {
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-dasharray="4 4"
+        {...props}
       />
     </Svg>
   );

@@ -2,6 +2,7 @@ import { View } from "react-native";
 import Text from "../../../config/Text";
 import styles from "./header.style";
 import { CameraIcon } from "../../../../assets/icons/index";
+import { COLORS, CONSTANTS } from "../../../../theme/index";
 
 const Header = () => {
   return (
@@ -10,8 +11,16 @@ const Header = () => {
         <Text style={styles.headerLeftText}>Edit</Text>
       </View>
       <View style={styles.headerRight}>
-        <CameraIcon />
-        <ContactIcon />
+        <CameraIcon
+          stroke={COLORS.bluePrimary}
+          height={CONSTANTS.iconHeight}
+          width={CONSTANTS.iconWidth}
+        />
+        <ContactIcon
+          stroke={COLORS.bluePrimary}
+          height={CONSTANTS.iconHeight}
+          width={CONSTANTS.iconWidth}
+        />
       </View>
     </View>
   );
