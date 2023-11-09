@@ -7,9 +7,11 @@ import { COLORS, CONSTANTS } from "../theme/index";
 // styles
 import styles from "../styles/home";
 
-// components (global and screen)
-// Globals
+// global/config component
 import Text from "../components/config/Text";
+
+// components
+import Header from "../components/screens/home/header/header.component";
 
 const Home = () => {
   return (
@@ -21,6 +23,10 @@ const Home = () => {
           },
         }}
       />
+
+      <View>
+        <Header />
+      </View>
 
       <StatusBar style="light" />
     </SafeAreaView>

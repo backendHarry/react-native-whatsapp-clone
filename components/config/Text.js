@@ -6,7 +6,7 @@ export default Text = ({ children, style, ...props }) => {
   const modifiedStyle = {
     color: COLORS.white,
     fontFamily: FONTS.medium,
-    fontSize: SIZES.regular,
+    fontSize: SIZES.medium,
     ...style,
   };
 
