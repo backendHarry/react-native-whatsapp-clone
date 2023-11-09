@@ -1,29 +1,28 @@
 import { StatusBar } from "expo-status-bar";
 import { View, SafeAreaView } from "react-native";
-import { Stack } from "expo-router";
+import { Link, Stack } from "expo-router";
 
-import { COLORS } from "../theme/index";
+import { COLORS, CONSTANTS } from "../theme/index";
 
-// components (global and scree)
-// G
-import Text from "../components/globals/Text";
+// styles
+import styles from "../styles/home";
+
+// components (global and screen)
+// Globals
+import Text from "../components/config/Text";
 
 const Home = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }}>
       <Stack.Screen
         options={{
-          title: "home",
-          headerStyle: { backgroundColor: COLORS.background },
-          headerTitle: "",
+          header: () => {
+            return null;
+          },
         }}
       />
 
-      <View>
-        <Text style={{ color: "black" }}>Hello world</Text>
-      </View>
-
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </SafeAreaView>
   );
 };
