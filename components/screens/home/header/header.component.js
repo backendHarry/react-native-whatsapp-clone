@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import Text from "../../../config/Text";
 import styles from "./header.style";
-import { CameraIcon, ContactIcon } from "../../../../assets/icons/index";
+import { CameraIcon } from "../../../../assets/icons/index";
 
 const Header = () => {
   return (

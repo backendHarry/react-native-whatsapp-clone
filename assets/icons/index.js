@@ -1,5 +1,6 @@
-import CallIcon from "./call-icon";
+import CallIcon from "./call-icon.js";
 import CameraIcon from "./camera-icon";
+// import CameraIcon from "./camera-icon.js";
 import ChatIcon from "./chat-icon";
 import CommunityIcon from "./community-icon";
 import ContactIcon from "./contact-icon";
