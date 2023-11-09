@@ -15,11 +15,13 @@ const Header = () => {
           stroke={COLORS.bluePrimary}
           height={CONSTANTS.iconHeight}
           width={CONSTANTS.iconWidth}
+          padding={0}
         />
         <ContactIcon
           stroke={COLORS.bluePrimary}
-          height={CONSTANTS.iconHeight}
+          height={30}
           width={CONSTANTS.iconWidth}
+          padding={0}
         />
       </View>
     </View>

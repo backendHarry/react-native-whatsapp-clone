@@ -7,9 +7,18 @@ const styles = StyleSheet.create({
     marginRight: "auto",
     width: CONSTANTS.width,
     marginTop: 20,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   headerLeftText: {
     fontFamily: FONTS.light,
+  },
+  headerRight: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "25%",
+    justifyContent: "space-between",
   },
 });
 
