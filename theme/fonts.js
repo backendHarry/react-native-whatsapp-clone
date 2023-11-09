@@ -1,6 +1,6 @@
 const FONTS = {
   light: "HNLight",
-  medium: "HNMediuim",
+  medium: "HNMedium",
   bold: "HNBold",
   black: "HNBlack",
 };

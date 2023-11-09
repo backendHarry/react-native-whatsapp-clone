@@ -1,7 +1,6 @@
-import { Stack } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
+import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -13,9 +12,9 @@ const Layout = () => {
     HNMedium: require("../assets/fonts/HelveticaNeue-Medium.ttf"),
   });
 
-  const onLayoutRootView = useCallback(async () => {
+  useEffect(() => {
     if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
+      SplashScreen.hideAsync();
     }
   }, [fontsLoaded, fontError]);
 
@@ -24,7 +23,7 @@ const Layout = () => {
   }
 
   return (
-    <Stack initialRouteName="home" onLayout={onLayoutRootView}>
+    <Stack initialRouteName="home">
       <Stack.Screen name="home" />
     </Stack>
   );
