@@ -9,6 +9,7 @@ import FilterMessages from "./filter-messages-icon";
 import LeftIcon from "./left-icon";
 import PlusIcon from "./plus-icon";
 import RightIcon from "./right-icon";
+import SearchIcon from "./search-icon.js";
 import UserProfile from "./user-profile-icon";
 import VideoCall from "./video-call-icon";
 import ViewStatus from "./view-status-icon";
@@ -25,6 +26,7 @@ export {
   LeftIcon,
   PlusIcon,
   RightIcon,
+  SearchIcon,
   UserProfile,
   VideoCall,
   ViewStatus,

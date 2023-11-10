@@ -1,15 +1,24 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "../theme/index";
+import { COLORS, SIZES, FONTS, CONSTANTS } from "../theme/index";
 
 const styles = StyleSheet.create({
-  container: {
+  body: {
     backgroundColor: COLORS.background,
-    height: "100%",
+    flex: 1,
   },
-  contentContainer: {
+  container: {
     marginLeft: "auto",
     marginRight: "auto",
-    width: "95%",
+    width: CONSTANTS.width,
+  },
+  chatHeaderTextView: {
+    marginTop: 15,
+    marginBottom: 10,
+  },
+  chatHeaderText: {
+    fontSize: SIZES.xxLarge,
+    fontFamily: FONTS.bold,
+    color: COLORS.chatWhite,
   },
 });
 

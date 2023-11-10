@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
-import { CONSTANTS, FONTS, SIZES } from "../../../../theme/index";
+import { CONSTANTS, COLORS, FONTS, SIZES } from "../../../../theme/index";
 
 const styles = StyleSheet.create({
   headerContainer: {
     marginLeft: "auto",
     marginRight: "auto",
-    width: CONSTANTS.width,
+    width: "100%",
     marginTop: 20,
     alignItems: "center",
     flexDirection: "row",
@@ -13,11 +13,13 @@ const styles = StyleSheet.create({
   },
   headerLeftText: {
     fontFamily: FONTS.light,
+    color: COLORS.bluePrimary,
+    fontSize: SIZES.medium,
   },
   headerRight: {
     flexDirection: "row",
     alignItems: "center",
-    width: "25%",
+    width: "20%",
     justifyContent: "space-between",
   },
 });

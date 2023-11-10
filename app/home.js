@@ -12,10 +12,11 @@ import Text from "../components/config/Text";
 
 // components
 import Header from "../components/screens/home/header/header.component";
+import Search from "../components/screens/home/search/search.component";
 
 const Home = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }}>
+    <SafeAreaView style={styles.body}>
       <Stack.Screen
         options={{
           header: () => {
@@ -24,8 +25,12 @@ const Home = () => {
         }}
       />
 
-      <View>
+      <View style={styles.container}>
         <Header />
+        <View style={styles.chatHeaderTextView}>
+          <Text style={styles.chatHeaderText}>Chats</Text>
+        </View>
+        <Search />
       </View>
 
       <StatusBar style="light" />
