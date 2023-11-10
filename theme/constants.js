@@ -1,7 +1,7 @@
 const CONSTANTS = {
   width: "95%",
-  iconWidth: 27,
-  iconHeight: 27,
+  iconWidth: 25,
+  iconHeight: 25,
   searchFieldWidth: "90%",
 };
 

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 1,
     top: "50%",
-    transform: [{ translateY: -14 }, { translateX: 6 }],
+    transform: [{ translateY: -CONSTANTS.iconHeight / 2 }, { translateX: 6 }],
   },
   searchFieldInput: {
     backgroundColor: COLORS.searchGrayBackground,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.light,
     color: COLORS.white,
     letterSpacing: 0.5,
-    borderRadius: 5,
+    borderRadius: 7,
   },
 });
 
