@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { View, SafeAreaView } from "react-native";
+import {
+  View,
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { Link, Stack } from "expo-router";
 
 import { COLORS, CONSTANTS } from "../theme/index";
@@ -17,23 +24,29 @@ import Search from "../components/screens/home/search/search.component";
 const Home = () => {
   return (
     <SafeAreaView style={styles.body}>
-      <Stack.Screen
-        options={{
-          header: () => {
-            return null;
-          },
-        }}
-      />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
+            <Stack.Screen
+              options={{
+                header: () => {
+                  return null;
+                },
+              }}
+            />
 
-      <View style={styles.container}>
-        <Header />
-        <View style={styles.chatHeaderTextView}>
-          <Text style={styles.chatHeaderText}>Chats</Text>
-        </View>
-        <Search />
-      </View>
+            <Header />
+            <View style={styles.chatHeaderTextView}>
+              <Text style={styles.chatHeaderText}>Chats</Text>
+            </View>
+            <Search />
+          </View>
+        </TouchableWithoutFeedback>
 
-      <StatusBar style="light" />
+        <StatusBar style="light" />
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };

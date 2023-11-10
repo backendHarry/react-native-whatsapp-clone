@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
     width: CONSTANTS.width,
+    height: "100%",
   },
   chatHeaderTextView: {
     marginTop: 15,
