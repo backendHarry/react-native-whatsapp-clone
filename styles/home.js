@@ -7,10 +7,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
+    height: "100%",
+  },
+  centerContainer: {
     marginLeft: "auto",
     marginRight: "auto",
     width: CONSTANTS.width,
-    height: "100%",
   },
   chatHeaderTextView: {
     marginTop: 15,
@@ -20,6 +22,22 @@ const styles = StyleSheet.create({
     fontSize: SIZES.xxLarge,
     fontFamily: FONTS.bold,
     color: COLORS.chatWhite,
+  },
+  chatOptions: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    marginTop: 25,
+  },
+  chatOptionText: {
+    fontFamily: FONTS.light,
+    fontSize: SIZES.medium,
+    color: COLORS.bluePrimary,
+  },
+  conversationContainer: {
+    marginTop: 15,
+    borderColor: COLORS.grayBorder,
+    borderTopWidth: 1,
   },
 });
 

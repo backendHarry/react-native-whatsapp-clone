@@ -20,6 +20,7 @@ import Text from "../components/config/Text";
 // components
 import Header from "../components/screens/home/header/header.component";
 import Search from "../components/screens/home/search/search.component";
+import Conversation from "../components/screens/home/conversations/conversation.component";
 
 const Home = () => {
   return (
@@ -37,11 +38,20 @@ const Home = () => {
               }}
             />
 
-            <Header />
-            <View style={styles.chatHeaderTextView}>
-              <Text style={styles.chatHeaderText}>Chats</Text>
+            <View style={styles.centerContainer}>
+              <Header />
+              <View style={styles.chatHeaderTextView}>
+                <Text style={styles.chatHeaderText}>Chats</Text>
+              </View>
+              <Search />
+              <View style={styles.chatOptions}>
+                <Text style={styles.chatOptionText}>Broadcast Lists</Text>
+                <Text style={styles.chatOptionText}>New Group</Text>
+              </View>
             </View>
-            <Search />
+            <View style={styles.conversationContainer}>
+              <Conversation />
+            </View>
           </View>
         </TouchableWithoutFeedback>
 
