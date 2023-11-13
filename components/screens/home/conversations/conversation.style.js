@@ -58,6 +58,18 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.light,
     color: COLORS.chatGray,
   },
+  missedMessages: {
+    backgroundColor: COLORS.bluePrimary,
+    width: "35%",
+    height: "30%",
+    marginLeft: "auto",
+    marginTop: 5,
+    borderRadius: 40,
+  },
+  missedMessagesText: {
+    color: COLORS.background,
+    textAlign: "center",
+  },
 });
 
 export default styles;

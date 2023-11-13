@@ -38,6 +38,9 @@ const Conversation = () => {
           </View>
           <View style={styles.timeAndMissedMessages}>
             <Text style={styles.timeOfMessage}>3:51 AM</Text>
+            <View style={styles.missedMessages}>
+              <Text style={styles.missedMessagesText}>2</Text>
+            </View>
           </View>
         </View>
       </View>
