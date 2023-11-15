@@ -9,8 +9,6 @@ import {
 } from "react-native";
 import { Link, Stack } from "expo-router";
 
-import { COLORS, CONSTANTS } from "../theme/index";
-
 // styles
 import styles from "../styles/home";
 
@@ -21,6 +19,8 @@ import Text from "../components/config/Text";
 import Header from "../components/screens/home/header/header.component";
 import Search from "../components/screens/home/search/search.component";
 import Conversation from "../components/screens/home/conversations/conversation.component";
+
+import NavBar from "../components/common/navbar/navbar.component";
 
 const Home = () => {
   return (
@@ -57,6 +57,7 @@ const Home = () => {
 
         <StatusBar style="light" />
       </KeyboardAvoidingView>
+      <NavBar />
     </SafeAreaView>
   );
 };
