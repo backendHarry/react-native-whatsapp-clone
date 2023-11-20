@@ -11,17 +11,27 @@ import { DoubleMessage } from "../../../../assets/icons/index";
 
 import { CONSTANTS, COLORS } from "../../../../theme/index";
 
-const Conversation = () => {
+const Conversation = ({ item }) => {
+  const {
+    conversationProfileImage,
+    conversationName,
+    conversationLastMessage,
+    conversationLastTime,
+    conversationMissedMessages,
+  } = item;
   return (
     <View style={styles.conversation}>
       <View style={styles.conversationContainer}>
         <View style={styles.profileImageContainner}>
-          <Image source={dummyProfilePicture} style={styles.profileImage} />
+          <Image
+            source={conversationProfileImage}
+            style={styles.profileImage}
+          />
         </View>
         <View style={styles.conversationInfoAndTime}>
           <View style={styles.conversationNameAndMessage}>
             <Text style={styles.conversationName} numberOfLines={1}>
-              Smallie
+              {conversationName}
             </Text>
             <Text style={styles.conversationMessage} numberOfLines={2}>
               <View style={styles.messageIcon}>
@@ -31,16 +41,18 @@ const Conversation = () => {
                   fill={COLORS.grayIcon}
                 />
               </View>
-              😂 that's a lie, the title provides its own additional styles. The
-              title and body will stack on top of each other on account of the
-              literal newlines
+              {conversationLastMessage}
             </Text>
           </View>
           <View style={styles.timeAndMissedMessages}>
-            <Text style={styles.timeOfMessage}>3:51 AM</Text>
-            <View style={styles.missedMessages}>
-              <Text style={styles.missedMessagesText}>2</Text>
-            </View>
+            <Text style={styles.timeOfMessage}>{conversationLastTime}</Text>
+            {conversationMissedMessages > 0 && (
+              <View style={styles.missedMessages}>
+                <Text style={styles.missedMessagesText}>
+                  {conversationMissedMessages}
+                </Text>
+              </View>
+            )}
           </View>
         </View>
       </View>

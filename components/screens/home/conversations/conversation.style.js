@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
   conversationMessage: {
     fontFamily: FONTS.light,
     color: COLORS.chatGray,
-    marginTop: -2,
+    marginTop: -0.5,
   },
   messageIcon: {
-    marginTop: -4,
+    marginTop: -5.9,
   },
   timeAndMissedMessages: {
     marginLeft: "auto",

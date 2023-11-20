@@ -6,6 +6,8 @@ import {
   SafeAreaView,
   TouchableWithoutFeedback,
   Keyboard,
+  FlatList,
+  ScrollView,
 } from "react-native";
 import { Link, Stack } from "expo-router";
 
@@ -53,18 +55,12 @@ const Home = () => {
               </View>
             </View>
             <View style={styles.conversationContainer}>
-              {/* <Conversation />
-              <Conversation />
-              <Conversation />
-              <Conversation />
-              <Conversation />
-              <Conversation />
-              <Conversation />
-              <Conversation />
-              <Conversation /> */}
-              {Conversations.map((conversation) => {
-                return <Conversation />;
-              })}
+              <FlatList
+                data={Conversations}
+                renderItem={({ index, item }) => {
+                  return <Conversation item={item} />;
+                }}
+              />
             </View>
           </View>
         </TouchableWithoutFeedback>
