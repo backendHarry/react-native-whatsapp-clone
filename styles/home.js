@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     marginTop: 25,
+    marginBottom: 15,
   },
   chatOptionText: {
     fontFamily: FONTS.light,

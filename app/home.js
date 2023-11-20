@@ -34,35 +34,38 @@ const Home = () => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.container}>
-            <Stack.Screen
-              options={{
-                header: () => {
-                  return null;
-                },
-              }}
-            />
+          <ScrollView>
+            <View style={styles.container}>
+              <Stack.Screen
+                options={{
+                  header: () => {
+                    return null;
+                  },
+                }}
+              />
 
-            <View style={styles.centerContainer}>
-              <Header />
-              <View style={styles.chatHeaderTextView}>
-                <Text style={styles.chatHeaderText}>Chats</Text>
+              <View style={styles.centerContainer}>
+                <Header />
               </View>
-              <Search />
-              <View style={styles.chatOptions}>
-                <Text style={styles.chatOptionText}>Broadcast Lists</Text>
-                <Text style={styles.chatOptionText}>New Group</Text>
+              <View style={styles.centerContainer}>
+                <View style={styles.chatHeaderTextView}>
+                  <Text style={styles.chatHeaderText}>Chats</Text>
+                </View>
+                <Search />
+                <View style={styles.chatOptions}>
+                  <Text style={styles.chatOptionText}>Broadcast Lists</Text>
+                  <Text style={styles.chatOptionText}>New Group</Text>
+                </View>
               </View>
-            </View>
-            <View style={styles.conversationContainer}>
               <FlatList
                 data={Conversations}
                 renderItem={({ index, item }) => {
                   return <Conversation item={item} />;
                 }}
+                scrollEnabled={true}
               />
             </View>
-          </View>
+          </ScrollView>
         </TouchableWithoutFeedback>
 
         <StatusBar style="light" />

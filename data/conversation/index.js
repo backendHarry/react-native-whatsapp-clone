@@ -38,6 +38,27 @@ const Conversations = [
     conversationLastTime: "5:00 AM",
     conversationMissedMessages: 0,
   },
+  {
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
+  {
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
+  {
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
 ];
 
 export default Conversations;

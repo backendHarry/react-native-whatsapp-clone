@@ -4,9 +4,6 @@ import Text from "../../../config/Text";
 
 import styles from "./conversation.style";
 
-// test
-import dummyProfilePicture from "../../../../assets/images/profile.jpeg";
-
 import { DoubleMessage } from "../../../../assets/icons/index";
 
 import { CONSTANTS, COLORS } from "../../../../theme/index";
