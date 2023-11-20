@@ -22,6 +22,9 @@ import Conversation from "../components/screens/home/conversations/conversation.
 
 import NavBar from "../components/common/navbar/navbar.component";
 
+// dummy data
+import Conversations from "../data/conversation/index";
+
 const Home = () => {
   return (
     <SafeAreaView style={styles.body}>
@@ -50,7 +53,18 @@ const Home = () => {
               </View>
             </View>
             <View style={styles.conversationContainer}>
+              {/* <Conversation />
               <Conversation />
+              <Conversation />
+              <Conversation />
+              <Conversation />
+              <Conversation />
+              <Conversation />
+              <Conversation />
+              <Conversation /> */}
+              {Conversations.map((conversation) => {
+                return <Conversation />;
+              })}
             </View>
           </View>
         </TouchableWithoutFeedback>
