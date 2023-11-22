@@ -8,6 +8,7 @@ import {
   Keyboard,
   FlatList,
   ScrollView,
+  VirtualizedList,
 } from "react-native";
 import { Link, Stack } from "expo-router";
 
@@ -28,45 +29,57 @@ import NavBar from "../components/common/navbar/navbar.component";
 import Conversations from "../data/conversation/index";
 
 const Home = () => {
+  const getItem = (data, index) => {
+    return data[index];
+  };
+
   return (
     <SafeAreaView style={styles.body}>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView>
-            <View style={styles.container}>
-              <Stack.Screen
-                options={{
-                  header: () => {
-                    return null;
-                  },
-                }}
-              />
+        <View style={styles.content}>
+          <Stack.Screen
+            options={{
+              header: () => {
+                return null;
+              },
+            }}
+          />
 
-              <View style={styles.centerContainer}>
-                <Header />
+          <View style={styles.centerContainer}>
+            <Header />
+          </View>
+          <ScrollView nestedScrollEnabled={true}>
+            <View style={styles.centerContainer}>
+              <View style={styles.chatHeaderTextView}>
+                <Text style={styles.chatHeaderText}>Chats</Text>
               </View>
-              <View style={styles.centerContainer}>
-                <View style={styles.chatHeaderTextView}>
-                  <Text style={styles.chatHeaderText}>Chats</Text>
-                </View>
-                <Search />
-                <View style={styles.chatOptions}>
-                  <Text style={styles.chatOptionText}>Broadcast Lists</Text>
-                  <Text style={styles.chatOptionText}>New Group</Text>
-                </View>
+              <Search />
+              <View style={styles.chatOptions}>
+                <Text style={styles.chatOptionText}>Broadcast Lists</Text>
+                <Text style={styles.chatOptionText}>New Group</Text>
               </View>
-              <FlatList
-                data={Conversations}
-                renderItem={({ index, item }) => {
-                  return <Conversation item={item} />;
-                }}
-                scrollEnabled={true}
-              />
+            </View>
+
+            <VirtualizedList
+              data={Conversations}
+              renderItem={({ item }) => {
+                return <Conversation item={item} />;
+              }}
+              initialNumToRender={6}
+              getItemCount={(data) => data.length}
+              getItem={getItem}
+              scrollEnabled={false}
+            />
+            <View style={styles.info}>
+              <Text style={styles.infoMessage}>Your personal messages are</Text>
+              <Text style={styles.infoMessageHighlight}>
+                end-to-end encypted
+              </Text>
             </View>
           </ScrollView>
-        </TouchableWithoutFeedback>
+        </View>
 
         <StatusBar style="light" />
       </KeyboardAvoidingView>

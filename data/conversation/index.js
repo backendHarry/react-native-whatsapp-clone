@@ -2,6 +2,7 @@ import ProfileImage from "../../assets/images/profile.jpeg";
 
 const Conversations = [
   {
+    id: 1,
     conversationProfileImage: ProfileImage,
     conversationName: "Smallie",
     conversationLastMessage: `😂 that's a lie, the title provides its own additional styles. The
@@ -11,6 +12,7 @@ const Conversations = [
     conversationMissedMessages: 0,
   },
   {
+    id: 2,
     conversationProfileImage: ProfileImage,
     conversationName: "APP Client",
     conversationLastMessage: `how're you doing, done with the work?`,
@@ -18,6 +20,7 @@ const Conversations = [
     conversationMissedMessages: 2,
   },
   {
+    id: 3,
     conversationProfileImage: ProfileImage,
     conversationName: "John Doe",
     conversationLastMessage: `Yo!, what's going on man!`,
@@ -25,6 +28,7 @@ const Conversations = [
     conversationMissedMessages: 1,
   },
   {
+    id: 4,
     conversationProfileImage: ProfileImage,
     conversationName: "Jane Doe",
     conversationLastMessage: `Hey harry!, Happy mens' day`,
@@ -32,6 +36,7 @@ const Conversations = [
     conversationMissedMessages: 3,
   },
   {
+    id: 5,
     conversationProfileImage: ProfileImage,
     conversationName: "Guardian Angel lol",
     conversationLastMessage: `congratulations for now and in addy!!!`,
@@ -39,6 +44,7 @@ const Conversations = [
     conversationMissedMessages: 0,
   },
   {
+    id: 6,
     conversationProfileImage: ProfileImage,
     conversationName: "Guardian Angel lol",
     conversationLastMessage: `congratulations for now and in addy!!!`,
@@ -46,6 +52,7 @@ const Conversations = [
     conversationMissedMessages: 0,
   },
   {
+    id: 7,
     conversationProfileImage: ProfileImage,
     conversationName: "Guardian Angel lol",
     conversationLastMessage: `congratulations for now and in addy!!!`,
@@ -53,6 +60,63 @@ const Conversations = [
     conversationMissedMessages: 0,
   },
   {
+    id: 8,
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
+  {
+    id: 9,
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
+  {
+    id: 10,
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
+  {
+    id: 11,
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
+  {
+    id: 12,
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
+  {
+    id: 13,
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
+  {
+    id: 14,
+    conversationProfileImage: ProfileImage,
+    conversationName: "Guardian Angel lol",
+    conversationLastMessage: `congratulations for now and in addy!!!`,
+    conversationLastTime: "5:00 AM",
+    conversationMissedMessages: 0,
+  },
+  {
+    id: 15,
     conversationProfileImage: ProfileImage,
     conversationName: "Guardian Angel lol",
     conversationLastMessage: `congratulations for now and in addy!!!`,

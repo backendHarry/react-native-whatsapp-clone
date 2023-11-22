@@ -10,6 +10,7 @@ import { CONSTANTS, COLORS } from "../../../../theme/index";
 
 const Conversation = ({ item }) => {
   const {
+    id,
     conversationProfileImage,
     conversationName,
     conversationLastMessage,
@@ -17,7 +18,7 @@ const Conversation = ({ item }) => {
     conversationMissedMessages,
   } = item;
   return (
-    <View style={styles.conversation}>
+    <View style={styles.conversation} key={id}>
       <View style={styles.conversationContainer}>
         <View style={styles.profileImageContainner}>
           <Image

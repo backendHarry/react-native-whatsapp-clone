@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     left: 0,
-    height: "10%",
+    height: CONSTANTS.navBarHeight,
     width: "100%",
   },
   navBarContainer: {

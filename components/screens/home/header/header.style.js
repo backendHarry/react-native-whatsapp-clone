@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingBottom: 15,
   },
   headerLeftText: {
     fontFamily: FONTS.light,

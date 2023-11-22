@@ -1,10 +1,20 @@
 import { StyleSheet } from "react-native";
 import { COLORS, SIZES, FONTS, CONSTANTS } from "../theme/index";
 
+const infoMessageStyle = {
+  fontSize: SIZES.small,
+  fontFamily: FONTS.medium,
+};
+
 const styles = StyleSheet.create({
   body: {
     backgroundColor: COLORS.background,
     flex: 1,
+    height: "100%",
+  },
+  content: {
+    height: `${100 - parseInt(CONSTANTS.navBarHeight) + 5}%`,
+    flexGrow: 1,
   },
   container: {
     height: "100%",
@@ -15,7 +25,6 @@ const styles = StyleSheet.create({
     width: CONSTANTS.width,
   },
   chatHeaderTextView: {
-    marginTop: 15,
     marginBottom: 10,
   },
   chatHeaderText: {
@@ -39,6 +48,19 @@ const styles = StyleSheet.create({
     marginTop: 15,
     borderColor: COLORS.grayBorder,
     borderTopWidth: 1,
+  },
+  info: {
+    flexDirection: "row",
+    justifyContent: "center",
+    paddingVertical: "5%",
+  },
+  infoMessage: {
+    ...infoMessageStyle,
+  },
+  infoMessageHighlight: {
+    ...infoMessageStyle,
+    color: COLORS.bluePrimary,
+    marginLeft: 3,
   },
 });
 
