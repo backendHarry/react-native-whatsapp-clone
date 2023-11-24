@@ -5,12 +5,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   SafeAreaView,
-  TouchableWithoutFeedback,
-  Keyboard,
-  FlatList,
-  ScrollView,
   VirtualizedList,
-  Animated,
 } from "react-native";
 import { Link, Stack } from "expo-router";
 
@@ -19,6 +14,7 @@ import styles from "../styles/home";
 
 // global/config component
 import Text from "../components/config/Text";
+import ScrollView from "../components/config/ScrollView";
 
 // components
 import Header from "../components/screens/home/header/header.component";
@@ -34,29 +30,6 @@ const Home = () => {
   const getItem = (data, index) => {
     return data[index];
   };
-
-  // scroll feature
-
-  const scrollIndicator = useRef(new Animated.Value(0)).current;
-
-  const [scrollViewContentHeight, setScrollViewContentHeight] = useState(1);
-  const [scrollViewVisibleHeight, setScrollVisibleHeight] = useState(0);
-
-  const scrollIndicatorSize = 30;
-
-  const scrollDifference =
-    scrollViewVisibleHeight > scrollIndicatorSize
-      ? scrollViewVisibleHeight - scrollIndicatorSize
-      : 1;
-
-  const scrollIndicatorPosition = Animated.multiply(
-    scrollIndicator,
-    scrollViewVisibleHeight / scrollViewContentHeight
-  ).interpolate({
-    extrapolate: "clamp",
-    inputRange: [0, scrollDifference],
-    outputRange: [0, scrollDifference],
-  });
 
   return (
     <SafeAreaView style={styles.body}>
@@ -75,38 +48,8 @@ const Home = () => {
           <View style={styles.centerContainer}>
             <Header />
           </View>
-          <ScrollView
-            nestedScrollEnabled={true}
-            showsVerticalScrollIndicator={false}
-            // scroll indicator
-            onContentSizeChange={(_, height) => {
-              setScrollVisibleHeight(height);
-            }}
-            onLayout={({ nativeEvent }) => {
-              const { height: visbleHeight } = nativeEvent.layout;
-              setScrollViewContentHeight(visbleHeight);
-            }}
-            onScroll={Animated.event(
-              [{ nativeEvent: { contentOffset: { y: scrollIndicator } } }],
-              { useNativeDriver: false }
-            )}
-            scrollEventThrottle={16}
-          >
-            <Animated.View
-              style={[
-                {
-                  width: 15,
-                  backgroundColor: "red",
-                  position: "absolute",
-                  zIndex: 1,
-                  right: 0,
-                  height: scrollIndicatorSize,
-                },
-                {
-                  transform: [{ translateY: scrollIndicatorPosition }],
-                },
-              ]}
-            />
+
+          <ScrollView>
             <View style={styles.centerContainer}>
               <View style={styles.chatHeaderTextView}>
                 <Text style={styles.chatHeaderText}>Chats</Text>
