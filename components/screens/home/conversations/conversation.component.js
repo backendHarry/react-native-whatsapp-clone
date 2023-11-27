@@ -17,6 +17,7 @@ const Conversation = ({ item }) => {
     conversationLastTime,
     conversationMissedMessages,
   } = item;
+
   return (
     <View style={styles.conversation} key={id}>
       <View style={styles.conversationContainer}>

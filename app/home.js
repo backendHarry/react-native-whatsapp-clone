@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   View,
@@ -6,11 +6,13 @@ import {
   Platform,
   SafeAreaView,
   VirtualizedList,
+  TouchableHighlight,
 } from "react-native";
 import { Link, Stack } from "expo-router";
 
 // styles
 import styles from "../styles/home";
+import { COLORS } from "../theme/index";
 
 // global/config component
 import Text from "../components/config/Text";
@@ -27,8 +29,13 @@ import NavBar from "../components/common/navbar/navbar.component";
 import Conversations from "../data/conversation/index";
 
 const Home = () => {
+  // fetch single time for virtualized list
   const getItem = (data, index) => {
     return data[index];
+  };
+
+  const openChat = () => {
+    console.log("hello world");
   };
 
   return (
@@ -64,7 +71,16 @@ const Home = () => {
             <VirtualizedList
               data={Conversations}
               renderItem={({ item }) => {
-                return <Conversation item={item} />;
+                return (
+                  <TouchableHighlight
+                    delayPressIn={100}
+                    delayPressOut={100}
+                    underlayColor={COLORS.grayPrimary}
+                    onPress={openChat}
+                  >
+                    <Conversation item={item} />
+                  </TouchableHighlight>
+                );
               }}
               initialNumToRender={6}
               getItemCount={(data) => data.length}
