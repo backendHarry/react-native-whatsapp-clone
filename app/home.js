@@ -74,7 +74,7 @@ const Home = () => {
                 return (
                   <TouchableHighlight
                     delayPressIn={100}
-                    delayPressOut={100}
+                    delayPressOut={500}
                     underlayColor={COLORS.grayPrimary}
                     onPress={openChat}
                   >

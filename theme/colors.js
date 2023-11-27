@@ -14,7 +14,7 @@ const COLORS = {
   chatGray: "#8f8e95",
 
   grayBorder: "#2b2a2c",
-  grayPrimary: "#616161",
+  grayPrimary: "#4a4a4a",
 
   grayIcon: "#7e7d84",
   navBottomGradient1: "#1c1c1b",
