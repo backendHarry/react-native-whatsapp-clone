@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   content: {
-    height: `${100 - parseInt(CONSTANTS.navBarHeight) + 5}%`,
+    // height: `${100 - parseInt(CONSTANTS.navBarHeight) + 5}%`,
+    height: "100%",
     flexGrow: 1,
   },
   container: {
@@ -52,7 +53,10 @@ const styles = StyleSheet.create({
   info: {
     flexDirection: "row",
     justifyContent: "center",
-    paddingVertical: "5%",
+    // paddingVertical: "5%",
+    marginBottom: 30,
+    paddingBottom: 30,
+    paddingTop: 10,
   },
   infoMessage: {
     ...infoMessageStyle,

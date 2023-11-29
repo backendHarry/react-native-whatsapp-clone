@@ -38,6 +38,20 @@ const Home = () => {
     console.log("hello world");
   };
 
+  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
+
+  const isUserScrolledToBottom = ({
+    layoutMeasurement,
+    contentOffset,
+    contentSize,
+  }) => {
+    const paddingToBottom = 20;
+    return (
+      layoutMeasurement.height + contentOffset.y >=
+      contentSize.height - paddingToBottom
+    );
+  };
+
   return (
     <SafeAreaView style={styles.body}>
       <KeyboardAvoidingView
@@ -56,7 +70,14 @@ const Home = () => {
             <Header />
           </View>
 
-          <ScrollView>
+          <ScrollView
+            scrollFunc={(nativeEvent) => {
+              if (isUserScrolledToBottom(nativeEvent)) {
+                return setIsScrolledToBottom(true);
+              }
+              return setIsScrolledToBottom(false);
+            }}
+          >
             <View style={styles.centerContainer}>
               <View style={styles.chatHeaderTextView}>
                 <Text style={styles.chatHeaderText}>Chats</Text>
@@ -98,7 +119,7 @@ const Home = () => {
 
         <StatusBar style="light" />
       </KeyboardAvoidingView>
-      <NavBar />
+      <NavBar isBottomScrolled={isScrolledToBottom} />
     </SafeAreaView>
   );
 };

@@ -7,7 +7,12 @@ import {
 
 import { CONSTANTS, COLORS } from "../../theme";
 
-export default ScrollView = ({ children, scrollBarOptions = {}, ...props }) => {
+export default ScrollView = ({
+  children,
+  scrollBarOptions = {},
+  scrollFunc,
+  ...props
+}) => {
   const scrollBarHeight = scrollBarOptions.height || CONSTANTS.scrollBarHeight;
   const scrollBarWidth = scrollBarOptions.width || CONSTANTS.scrollBarWidth;
   const scrollBarColor = scrollBarOptions.color || COLORS.searchGrayPlaceholder;
@@ -73,10 +78,10 @@ export default ScrollView = ({ children, scrollBarOptions = {}, ...props }) => {
         const { height: visbleHeight } = nativeEvent.layout;
         setScrollViewContentHeight(visbleHeight);
       }}
-      onScroll={Animated.event(
-        [{ nativeEvent: { contentOffset: { y: scrollIndicator } } }],
-        { useNativeDriver: false }
-      )}
+      onScroll={({ nativeEvent }) => {
+        scrollFunc(nativeEvent);
+        scrollIndicator.setValue(nativeEvent.contentOffset.y);
+      }}
       onScrollBeginDrag={fadeIn}
       onScrollEndDrag={fadeOut}
       scrollEventThrottle={16}

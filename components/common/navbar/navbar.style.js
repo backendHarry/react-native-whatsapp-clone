@@ -3,7 +3,7 @@ import { CONSTANTS, COLORS, FONTS, SIZES } from "../../../theme/index";
 
 const styles = StyleSheet.create({
   navBar: {
-    backgroundColor: COLORS.navBottomGradient1,
+    backgroundColor: "rgba(0,0,0,0.6)",
     position: "absolute",
     bottom: 0,
     left: 0,
