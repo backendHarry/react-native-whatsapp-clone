@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   profileImageContainner: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
   },
   profileImage: {
     width: "100%",

@@ -28,6 +28,8 @@ import NavBar from "../components/common/navbar/navbar.component";
 // dummy data
 import Conversations from "../data/conversation/index";
 
+import { BlurView } from "expo-blur";
+
 const Home = () => {
   // fetch single time for virtualized list
   const getItem = (data, index) => {
@@ -53,23 +55,22 @@ const Home = () => {
   };
 
   return (
-    <SafeAreaView style={styles.body}>
+    <SafeAreaView style={styles.app}>
+      <Stack.Screen
+        options={{
+          header: () => {
+            return null;
+          },
+        }}
+      />
+
+      <Header />
+
+      {/* starting content */}
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <View style={styles.content}>
-          <Stack.Screen
-            options={{
-              header: () => {
-                return null;
-              },
-            }}
-          />
-
-          <View style={styles.centerContainer}>
-            <Header />
-          </View>
-
+        <View style={styles.body}>
           <ScrollView
             scrollFunc={(nativeEvent) => {
               if (isUserScrolledToBottom(nativeEvent)) {
@@ -107,7 +108,9 @@ const Home = () => {
               getItemCount={(data) => data.length}
               getItem={getItem}
               scrollEnabled={false}
+              style={styles.borderDivider}
             />
+
             <View style={styles.info}>
               <Text style={styles.infoMessage}>Your personal messages are</Text>
               <Text style={styles.infoMessageHighlight}>
@@ -119,6 +122,7 @@ const Home = () => {
 
         <StatusBar style="light" />
       </KeyboardAvoidingView>
+      {/* finishing content */}
       <NavBar isBottomScrolled={isScrolledToBottom} />
     </SafeAreaView>
   );

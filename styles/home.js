@@ -6,24 +6,27 @@ const infoMessageStyle = {
   fontFamily: FONTS.medium,
 };
 
+const centerContainerProps = {
+  marginLeft: "auto",
+  marginRight: "auto",
+  width: CONSTANTS.width,
+};
+
 const styles = StyleSheet.create({
-  body: {
+  app: {
     backgroundColor: COLORS.background,
     flex: 1,
-    height: "100%",
   },
-  content: {
-    // height: `${100 - parseInt(CONSTANTS.navBarHeight) + 5}%`,
-    height: "100%",
+  body: {
     flexGrow: 1,
-  },
-  container: {
-    height: "100%",
+    marginTop: 40,
   },
   centerContainer: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: CONSTANTS.width,
+    ...centerContainerProps,
+  },
+  header: {
+    ...centerContainerProps,
+    marginTop: 30,
   },
   chatHeaderTextView: {
     marginBottom: 10,
@@ -44,6 +47,10 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.light,
     fontSize: SIZES.medium,
     color: COLORS.bluePrimary,
+  },
+  borderDivider: {
+    borderTopColor: COLORS.grayBorder,
+    borderTopWidth: 1,
   },
   conversationContainer: {
     marginTop: 15,

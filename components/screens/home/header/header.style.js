@@ -2,15 +2,20 @@ import { StyleSheet } from "react-native";
 import { CONSTANTS, COLORS, FONTS, SIZES } from "../../../../theme/index";
 
 const styles = StyleSheet.create({
+  header: {
+    position: "absolute",
+    height: "10%",
+    width: "100%",
+  },
   headerContainer: {
     marginLeft: "auto",
     marginRight: "auto",
-    width: "100%",
-    marginTop: 20,
+    width: CONSTANTS.width,
+    marginTop: 35,
+    paddingVertical: 15,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingBottom: 15,
   },
   headerLeftText: {
     fontFamily: FONTS.light,

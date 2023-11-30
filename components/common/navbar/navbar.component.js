@@ -22,7 +22,11 @@ const EXTRAHEIGHT = 3;
 
 const NavBar = ({ isBottomScrolled }) => {
   return (
-    <BlurView intensity={isBottomScrolled ? 0 : 20} style={styles.navBar}>
+    <BlurView
+      intensity={isBottomScrolled ? 0 : 70}
+      tint="dark"
+      style={styles.navBar}
+    >
       <View style={styles.navBarContainer}>
         <View style={styles.navBarItem}>
           <View style={styles.navBarIcon}>
