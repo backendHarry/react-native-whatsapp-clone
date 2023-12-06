@@ -4,8 +4,11 @@ import { CONSTANTS, COLORS, FONTS, SIZES } from "../../../../theme/index";
 const styles = StyleSheet.create({
   header: {
     position: "absolute",
-    height: "10%",
+    top: 0,
     width: "100%",
+    zIndex: 1,
+    // backgroundColor: COLORS.background,
+    // overflow: "hidden",
   },
   headerContainer: {
     marginLeft: "auto",

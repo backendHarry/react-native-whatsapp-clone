@@ -19,17 +19,14 @@ const styles = StyleSheet.create({
   },
   body: {
     flexGrow: 1,
-    marginTop: 40,
   },
   centerContainer: {
     ...centerContainerProps,
   },
-  header: {
-    ...centerContainerProps,
-    marginTop: 30,
-  },
+
   chatHeaderTextView: {
     marginBottom: 10,
+    marginTop: 50,
   },
   chatHeaderText: {
     fontSize: SIZES.xxLarge,

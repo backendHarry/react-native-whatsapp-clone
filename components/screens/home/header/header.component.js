@@ -1,17 +1,26 @@
-import { View } from "react-native";
+import React, { useRef } from "react";
+import { View, Animated } from "react-native";
 import Text from "../../../config/Text";
 import styles from "./header.style";
 import { CameraIcon } from "../../../../assets/icons/index";
 import { COLORS, CONSTANTS } from "../../../../theme/index";
 import { BlurView } from "expo-blur";
 
-const Header = () => {
+const Header = ({ isHeaderScrolledPast, opacityAnimStyle }) => {
+  
   return (
-    <View style={styles.header}>
+    <BlurView
+      intensity={isHeaderScrolledPast ? 70 : 0}
+      tint="dark"
+      style={styles.header}
+    >
       <View style={styles.headerContainer}>
         <View style={styles.headerLeft}>
           <Text style={styles.headerLeftText}>Edit</Text>
         </View>
+        <Animated.View style={opacityAnimStyle}>
+          <Text>Chat</Text>
+        </Animated.View>
         <View style={styles.headerRight}>
           <CameraIcon
             stroke={COLORS.bluePrimary}
@@ -26,7 +35,7 @@ const Header = () => {
           />
         </View>
       </View>
-    </View>
+    </BlurView>
   );
 };
 

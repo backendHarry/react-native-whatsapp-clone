@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   View,
@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   VirtualizedList,
   TouchableHighlight,
+  Animated,
 } from "react-native";
 import { Link, Stack } from "expo-router";
 
@@ -41,6 +42,7 @@ const Home = () => {
   };
 
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
+  const [isScrolledPastHeader, setIsScrolledPastHeader] = useState(false);
 
   const isUserScrolledToBottom = ({
     layoutMeasurement,
@@ -54,6 +56,41 @@ const Home = () => {
     );
   };
 
+  const isUserScrolledPastHeader = ({ contentOffset }) => {
+    return contentOffset.y > 45;
+  };
+
+  // center text opacity feature
+  const opacityAnim = useRef(new Animated.Value(0)).current;
+
+  const opacityAnimStyle = { opacity: opacityAnim };
+
+  const textFadeIn = () => {
+    Animated.timing(opacityAnim, {
+      toValue: 1,
+      duration: 100,
+      useNativeDriver: false,
+    }).start();
+  };
+
+  const textFadeOut = () => {
+    Animated.timing(opacityAnim, {
+      toValue: 0,
+      duration: 50,
+      useNativeDriver: false,
+    }).start();
+  };
+
+  const runTextAnimation = (nativeEvent) => {
+    const offSet = nativeEvent.contentOffset.y;
+    if (offSet > 45) {
+      textFadeIn();
+    } else {
+      textFadeOut();
+    }
+  };
+  // end opacity animation
+
   return (
     <SafeAreaView style={styles.app}>
       <Stack.Screen
@@ -64,9 +101,6 @@ const Home = () => {
         }}
       />
 
-      <Header />
-
-      {/* starting content */}
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
@@ -78,6 +112,14 @@ const Home = () => {
               }
               return setIsScrolledToBottom(false);
             }}
+            scrollHeaderFunc={(nativeEvent) => {
+              if (isUserScrolledPastHeader(nativeEvent)) {
+                return setIsScrolledPastHeader(true);
+              }
+
+              return setIsScrolledPastHeader(false);
+            }}
+            centerTextOpacityFunc={runTextAnimation}
           >
             <View style={styles.centerContainer}>
               <View style={styles.chatHeaderTextView}>
@@ -122,7 +164,12 @@ const Home = () => {
 
         <StatusBar style="light" />
       </KeyboardAvoidingView>
-      {/* finishing content */}
+
+      {/* blurview component only works after a flatlist, scrollview or e.t.c of such components */}
+      <Header
+        isHeaderScrolledPast={isScrolledPastHeader}
+        opacityAnimStyle={opacityAnimStyle}
+      />
       <NavBar isBottomScrolled={isScrolledToBottom} />
     </SafeAreaView>
   );

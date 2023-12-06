@@ -11,6 +11,8 @@ export default ScrollView = ({
   children,
   scrollBarOptions = {},
   scrollFunc,
+  scrollHeaderFunc,
+  centerTextOpacityFunc,
   ...props
 }) => {
   const scrollBarHeight = scrollBarOptions.height || CONSTANTS.scrollBarHeight;
@@ -29,7 +31,7 @@ export default ScrollView = ({
     },
   });
 
-  const scrollIndicator = useRef(new Animated.Value(0)).current;
+  const scrollIndicator = useRef(new Animated.Value(1)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const [scrollViewContentHeight, setScrollViewContentHeight] = useState(1);
@@ -47,7 +49,7 @@ export default ScrollView = ({
     scrollViewVisibleHeight / scrollViewContentHeight
   ).interpolate({
     extrapolateRight: "clamp",
-    inputRange: [0, scrollDifference],
+    inputRange: [100, scrollDifference],
     outputRange: [0, scrollDifference],
   });
 
@@ -80,7 +82,9 @@ export default ScrollView = ({
       }}
       onScroll={({ nativeEvent }) => {
         scrollFunc(nativeEvent);
+        scrollHeaderFunc(nativeEvent);
         scrollIndicator.setValue(nativeEvent.contentOffset.y);
+        centerTextOpacityFunc(nativeEvent);
       }}
       onScrollBeginDrag={fadeIn}
       onScrollEndDrag={fadeOut}
