@@ -49,7 +49,7 @@ export default ScrollView = ({
     scrollViewVisibleHeight / scrollViewContentHeight
   ).interpolate({
     extrapolateRight: "clamp",
-    inputRange: [100, scrollDifference],
+    inputRange: [0, scrollDifference],
     outputRange: [0, scrollDifference],
   });
 
