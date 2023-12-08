@@ -7,6 +7,7 @@ const CONSTANTS = {
   navBarHeight: "10%",
   scrollBarHeight: 35,
   scrollBarWidth: 3,
+  textBoxHeight: "12%",
 };
 
 export default CONSTANTS;

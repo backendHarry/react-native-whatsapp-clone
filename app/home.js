@@ -9,7 +9,7 @@ import {
   TouchableHighlight,
   Animated,
 } from "react-native";
-import { Link, Stack } from "expo-router";
+import { Link, router, Stack } from "expo-router";
 
 // styles
 import styles from "../styles/home";
@@ -29,8 +29,6 @@ import NavBar from "../components/common/navbar/navbar.component";
 // dummy data
 import Conversations from "../data/conversation/index";
 
-import { BlurView } from "expo-blur";
-
 const Home = () => {
   // fetch single time for virtualized list
   const getItem = (data, index) => {
@@ -38,7 +36,7 @@ const Home = () => {
   };
 
   const openChat = () => {
-    console.log("hello world");
+    router.push({ pathname: "/chat/[id]", params: { id: "123" } });
   };
 
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
