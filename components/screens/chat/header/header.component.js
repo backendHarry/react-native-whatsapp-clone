@@ -10,7 +10,7 @@ import TestImage from "../../../../assets/images/profile.jpeg";
 
 const Header = () => {
   return (
-    <BlurView intensity={70} style={styles.chatHeader}>
+    <BlurView intensity={40} style={styles.chatHeader}>
       <View style={styles.chatHeaderContainer}>
         <View style={styles.chatHeaderLeft}>
           <View style={styles.leftIcon}>

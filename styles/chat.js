@@ -6,9 +6,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   chatBody: {
-    flexGrow: 1,
-    minHeight: "80%",
+    marginTop: "15%",
     backgroundColor: "red",
+    flexGrow: 1,
   },
 });
 
