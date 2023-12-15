@@ -3,10 +3,9 @@ import { CONSTANTS, COLORS, FONTS, SIZES } from "../../../../theme/index";
 
 const styles = StyleSheet.create({
   header: {
-    position: "absolute",
-    top: 0,
+    height: CONSTANTS.headerHeight,
     width: "100%",
-    zIndex: 1,
+    opacity: 1,
   },
   headerContainer: {
     marginLeft: "auto",

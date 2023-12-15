@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   },
   body: {
     flexGrow: 1,
+    height: "80%",
   },
   centerContainer: {
     ...centerContainerProps,
@@ -26,7 +27,6 @@ const styles = StyleSheet.create({
 
   chatHeaderTextView: {
     marginBottom: 10,
-    marginTop: 50,
   },
   chatHeaderText: {
     fontSize: SIZES.xxLarge,
@@ -57,10 +57,8 @@ const styles = StyleSheet.create({
   info: {
     flexDirection: "row",
     justifyContent: "center",
-    // paddingVertical: "5%",
-    marginBottom: 30,
-    paddingBottom: 30,
-    paddingTop: 10,
+    // marginBottom: 25,
+    // paddingBottom: "10%",
   },
   infoMessage: {
     ...infoMessageStyle,

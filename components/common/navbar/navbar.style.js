@@ -3,14 +3,9 @@ import { CONSTANTS, COLORS, FONTS, SIZES } from "../../../theme/index";
 
 const styles = StyleSheet.create({
   navBar: {
-    backgroundColor: "rgba(0,0,0,0)",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
+    backgroundColor: "transparent",
+    opacity: 1,
     height: CONSTANTS.navBarHeight,
-    width: "100%",
-    overflow: "hidden",
-    zIndex: 1,
   },
   navBarContainer: {
     width: CONSTANTS.navBarWidth,

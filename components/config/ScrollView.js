@@ -12,6 +12,7 @@ export default ScrollView = ({
   scrollBarOptions = {},
   scrollFunc,
   scrollHeaderFunc,
+  // setScrollDirectionForBottom,
   centerTextOpacityFunc,
   ...props
 }) => {
@@ -85,6 +86,7 @@ export default ScrollView = ({
         scrollHeaderFunc(nativeEvent);
         scrollIndicator.setValue(nativeEvent.contentOffset.y);
         centerTextOpacityFunc(nativeEvent);
+        // setScrollDirectionForBottom(nativeEvent);
       }}
       onScrollBeginDrag={fadeIn}
       onScrollEndDrag={fadeOut}

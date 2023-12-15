@@ -5,6 +5,7 @@ const CONSTANTS = {
   searchFieldWidth: "90%",
   navBarWidth: "90%",
   navBarHeight: "10%",
+  headerHeight: "10%",
   scrollBarHeight: 35,
   scrollBarWidth: 3,
   textBoxHeight: "12%",

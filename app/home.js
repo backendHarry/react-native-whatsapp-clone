@@ -4,10 +4,10 @@ import {
   View,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
   VirtualizedList,
   TouchableHighlight,
   Animated,
+  SafeAreaView,
 } from "react-native";
 import { Link, router, Stack } from "expo-router";
 
@@ -89,8 +89,15 @@ const Home = () => {
   };
   // end opacity animation
 
+  // const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView style={styles.app}>
+    <KeyboardAvoidingView style={styles.app}>
+      <Header
+        isHeaderScrolledPast={isScrolledPastHeader}
+        opacityAnimStyle={opacityAnimStyle}
+      />
+
       <Stack.Screen
         options={{
           header: () => {
@@ -99,77 +106,66 @@ const Home = () => {
         }}
       />
 
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-      >
-        <View style={styles.body}>
-          <ScrollView
-            scrollFunc={(nativeEvent) => {
-              if (isUserScrolledToBottom(nativeEvent)) {
-                return setIsScrolledToBottom(true);
-              }
-              return setIsScrolledToBottom(false);
-            }}
-            scrollHeaderFunc={(nativeEvent) => {
-              if (isUserScrolledPastHeader(nativeEvent)) {
-                return setIsScrolledPastHeader(true);
-              }
+      <SafeAreaView style={styles.body}>
+        {/* <View style={styles.body}> */}
+        <ScrollView
+          scrollFunc={(nativeEvent) => {
+            if (isUserScrolledToBottom(nativeEvent)) {
+              return setIsScrolledToBottom(true);
+            }
+            return setIsScrolledToBottom(false);
+          }}
+          scrollHeaderFunc={(nativeEvent) => {
+            if (isUserScrolledPastHeader(nativeEvent)) {
+              return setIsScrolledPastHeader(true);
+            }
 
-              return setIsScrolledPastHeader(false);
-            }}
-            centerTextOpacityFunc={runTextAnimation}
-          >
-            <View style={styles.centerContainer}>
-              <View style={styles.chatHeaderTextView}>
-                <Text style={styles.chatHeaderText}>Chats</Text>
-              </View>
-              <Search />
-              <View style={styles.chatOptions}>
-                <Text style={styles.chatOptionText}>Broadcast Lists</Text>
-                <Text style={styles.chatOptionText}>New Group</Text>
-              </View>
+            return setIsScrolledPastHeader(false);
+          }}
+          centerTextOpacityFunc={runTextAnimation}
+        >
+          <View style={styles.centerContainer}>
+            <View style={styles.chatHeaderTextView}>
+              <Text style={styles.chatHeaderText}>Chats</Text>
             </View>
-
-            <VirtualizedList
-              data={Conversations}
-              renderItem={({ item }) => {
-                return (
-                  <TouchableHighlight
-                    delayPressIn={100}
-                    delayPressOut={500}
-                    underlayColor={COLORS.grayPrimary}
-                    onPress={openChat}
-                  >
-                    <Conversation item={item} />
-                  </TouchableHighlight>
-                );
-              }}
-              initialNumToRender={6}
-              getItemCount={(data) => data.length}
-              getItem={getItem}
-              scrollEnabled={false}
-              style={styles.borderDivider}
-            />
-
-            <View style={styles.info}>
-              <Text style={styles.infoMessage}>Your personal messages are</Text>
-              <Text style={styles.infoMessageHighlight}>
-                end-to-end encypted
-              </Text>
+            <Search />
+            <View style={styles.chatOptions}>
+              <Text style={styles.chatOptionText}>Broadcast Lists</Text>
+              <Text style={styles.chatOptionText}>New Group</Text>
             </View>
-          </ScrollView>
-        </View>
+          </View>
 
-        <StatusBar style="light" />
-      </KeyboardAvoidingView>
+          <VirtualizedList
+            data={Conversations}
+            renderItem={({ item }) => {
+              return (
+                <TouchableHighlight
+                  delayPressIn={100}
+                  delayPressOut={500}
+                  underlayColor={COLORS.grayPrimary}
+                  onPress={openChat}
+                >
+                  <Conversation item={item} />
+                </TouchableHighlight>
+              );
+            }}
+            initialNumToRender={6}
+            getItemCount={(data) => data.length}
+            getItem={getItem}
+            scrollEnabled={false}
+            style={styles.borderDivider}
+          />
 
-      {/* blurview component only works after a flatlist, scrollview or e.t.c of such components */}
-      <Header
-        isHeaderScrolledPast={isScrolledPastHeader}
-        opacityAnimStyle={opacityAnimStyle}
-      />
+          <View style={styles.info}>
+            <Text style={styles.infoMessage}>Your personal messages are</Text>
+            <Text style={styles.infoMessageHighlight}>end-to-end encypted</Text>
+          </View>
+        </ScrollView>
+        {/* </View> */}
+      </SafeAreaView>
+
       <NavBar isBottomScrolled={isScrolledToBottom} />
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
 
