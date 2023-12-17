@@ -7,7 +7,6 @@ import { COLORS, CONSTANTS } from "../../../../theme/index";
 import { BlurView } from "expo-blur";
 
 const Header = ({ isHeaderScrolledPast, opacityAnimStyle }) => {
-  
   return (
     <BlurView
       intensity={isHeaderScrolledPast ? 70 : 0}

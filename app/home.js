@@ -4,12 +4,17 @@ import {
   View,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
   VirtualizedList,
   TouchableHighlight,
   Animated,
 } from "react-native";
 import { Link, router, Stack } from "expo-router";
+
+import {
+  SafeAreaProvider,
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 // styles
 import styles from "../styles/home";
@@ -89,8 +94,10 @@ const Home = () => {
   };
   // end opacity animation
 
+  const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView style={styles.app}>
+    <SafeAreaProvider style={styles.app}>
       <Stack.Screen
         options={{
           header: () => {
@@ -119,44 +126,53 @@ const Home = () => {
             }}
             centerTextOpacityFunc={runTextAnimation}
           >
-            <View style={styles.centerContainer}>
-              <View style={styles.chatHeaderTextView}>
-                <Text style={styles.chatHeaderText}>Chats</Text>
-              </View>
-              <Search />
-              <View style={styles.chatOptions}>
-                <Text style={styles.chatOptionText}>Broadcast Lists</Text>
-                <Text style={styles.chatOptionText}>New Group</Text>
-              </View>
-            </View>
-
-            <VirtualizedList
-              data={Conversations}
-              renderItem={({ item }) => {
-                return (
-                  <TouchableHighlight
-                    delayPressIn={100}
-                    delayPressOut={500}
-                    underlayColor={COLORS.grayPrimary}
-                    onPress={openChat}
-                  >
-                    <Conversation item={item} />
-                  </TouchableHighlight>
-                );
+            <SafeAreaView
+              style={{
+                paddingTop: insets.top,
+                paddingBottom: insets.bottom,
               }}
-              initialNumToRender={6}
-              getItemCount={(data) => data.length}
-              getItem={getItem}
-              scrollEnabled={false}
-              style={styles.borderDivider}
-            />
+            >
+              <View style={styles.centerContainer}>
+                <View style={styles.chatHeaderTextView}>
+                  <Text style={styles.chatHeaderText}>Chats</Text>
+                </View>
+                <Search />
+                <View style={styles.chatOptions}>
+                  <Text style={styles.chatOptionText}>Broadcast Lists</Text>
+                  <Text style={styles.chatOptionText}>New Group</Text>
+                </View>
+              </View>
 
-            <View style={styles.info}>
-              <Text style={styles.infoMessage}>Your personal messages are</Text>
-              <Text style={styles.infoMessageHighlight}>
-                end-to-end encypted
-              </Text>
-            </View>
+              <VirtualizedList
+                data={Conversations}
+                renderItem={({ item }) => {
+                  return (
+                    <TouchableHighlight
+                      delayPressIn={100}
+                      delayPressOut={500}
+                      underlayColor={COLORS.grayPrimary}
+                      onPress={openChat}
+                    >
+                      <Conversation item={item} />
+                    </TouchableHighlight>
+                  );
+                }}
+                initialNumToRender={6}
+                getItemCount={(data) => data.length}
+                getItem={getItem}
+                scrollEnabled={false}
+                style={styles.borderDivider}
+              />
+
+              <View style={styles.info}>
+                <Text style={styles.infoMessage}>
+                  Your personal messages are
+                </Text>
+                <Text style={styles.infoMessageHighlight}>
+                  end-to-end encypted
+                </Text>
+              </View>
+            </SafeAreaView>
           </ScrollView>
         </View>
 
@@ -169,7 +185,7 @@ const Home = () => {
         opacityAnimStyle={opacityAnimStyle}
       />
       <NavBar isBottomScrolled={isScrolledToBottom} />
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

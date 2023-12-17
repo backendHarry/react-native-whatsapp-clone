@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     top: 0,
     width: "100%",
     zIndex: 1,
+    // backgroundColor: "red",
   },
   headerContainer: {
     marginLeft: "auto",
