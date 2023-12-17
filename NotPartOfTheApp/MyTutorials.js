@@ -24,7 +24,7 @@ const Chat = () => {
           <Text>Hello world</Text>
         </View>
       </View>
-      <SafeAreaView style={{ backgroundColor: "black", flex: 1 }}>
+      <View style={{ backgroundColor: "black", flex: 1 }}>
         <Stack.Screen
           options={{
             header: () => {
@@ -35,14 +35,16 @@ const Chat = () => {
 
         <View style={{ backgroundColor: "blue", height: "80%", flexGrow: 1 }}>
           <ScrollView showsVerticalScrollIndicator={true}>
-            <Text>Scroll Text</Text>
-            <Text>Scroll Text</Text>
-            <Text>Scroll Text</Text>
-            <Text>Scroll Text</Text>
-            <Text>Scroll Text</Text>
+            <SafeAreaView>
+              <Text>Scroll Text</Text>
+              <Text>Scroll Text</Text>
+              <Text>Scroll Text</Text>
+              <Text>Scroll Text</Text>
+              <Text>Scroll Text</Text>
+            </SafeAreaView>
           </ScrollView>
         </View>
-      </SafeAreaView>
+      </View>
       <View
         style={{
           height: "10%",
@@ -86,5 +88,22 @@ export default Chat;
   Next will be on the KeyboardAviodingView
   
   The KeyAvoidingView should be the major View for it to function properly and not that, it should have the behaviour prop
+
+  Next will be on the edge from the SafeAreaView...
+
+  To do this,first thing first is to avoid the SafeAreaView from react-native, except it's just for a small project. More better library to use is the react-native-safe-area-context.
+
+  To use this, first thing first, the SafeAreaProvider must be the top most Component in our App. 
+
+  <SafeAreaProvider>
+  ....
+  </SafeAreaProvider>
+
+  then we do not wrap our app with the SafeAreaView because this view gives a padding to the top and bottom of the component it wraps, and wrapping the up most component after the main component will mean we are wrapping our app which will indirectly mean we are adding padding top and padding bottom to our app which will add spaces to the top and bottom of the app.
+
+
+  So what we do is, provide a view which we can treat as our "body", with styles, e.t.c and in that body if we have components, we can apply the SafeAreaView to those components, which will be inside this "body" view or after the view, we can apply the safeareaview and include all our components there.
+
+  Check the code above to understand more better, the line with SafeAreaView.
   
    */
