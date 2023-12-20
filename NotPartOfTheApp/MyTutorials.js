@@ -105,5 +105,71 @@ export default Chat;
   So what we do is, provide a view which we can treat as our "body", with styles, e.t.c and in that body if we have components, we can apply the SafeAreaView to those components, which will be inside this "body" view or after the view, we can apply the safeareaview and include all our components there.
 
   Check the code above to understand more better, the line with SafeAreaView.
+
+  Next is on Scroll View.. How to understand the mathematics and logic behind it.
+  
+  First thing is on style and contentContainerStyle
+
+  The style is the normal prop for styling a component, when used... it styles the scrollView relatively to the other components in the app. Infact, using it is as us treating the component as a single unit just like the other components. we can add styling properties like marging moving the view left, right, bottom, top... also backgroundColor, e.t.c
+
+  But anything affecting the content of the view will be done with the contentContainerStyle... Things like alignment, justifyContent, anything that might affect the internal components of the view. 
+  
+  Also, think of the content as the part that is scrollable!!!. The style part is just the normal view from RN, so the contentStyle.. can have a height of more than 100% since its scrollable, but the style height can't be more than 100%
+
+
+  ContentOffset
+  ------------
+
+  The contentOffset contains positions for the x and y position of our scrollView which starts from the safeAreaView... depending on where we scroll to, it changes over scroll. {x:0, y:0} means the scrollView is still at the top and havent scrolled down. We can use this to make something happen after scrolling past some position.
+
+  contentInset
+  -------------
+
+  The contentInset somehow measures the padding of the content within the scrollView..  It adds this extra within the scrollView thus making it look like padding.
+
+
+  contentSize
+  -----------------
+
+  The contentSize is the size of the content inside the scrollView... It measures the height and width of the scrollView but actually the content inside it. We can use the "style" prop to have a height of "100%" which is for the view component as any other component. Then we can use the contentContainerStyle to give a height of "50%", this is the for the actual content for the content inside the scrollView. Giving this 50%, this will be representing the contentSize...
+
+  So the contentSize is dynamic, depending on the content inside the scrollView.. the more the content, the more the height increases and vice versa.
+
+
+  layoutMeasurement
+  -------------------
+
+  Just like the contentSize, the layoutMeasurement does the same thing, but for the scrollView itself and not the content inside the scrollView. We can use an alternative that is the onLayout to get these properties or use this instead
+
+
+  EXTRA
+  -------
+
+  we also have (1) onLayout and (2) onContentSizeChange
+
+  onLayout
+  ---------
+
+  This prop is not unique to scrollView but to almost infact all components from react-native. This prop is used to get the height, width and positions of components in the screen. Now when used in the scrollView, it gives the information for the scrollView (not the content inside)... exactly what the layoutMeasurement returns, the only difference is that, the layoutMeasurement fires when the scrollView is scrolled while the onLayout is fired when the app is mounted.
+
+  onContentSizeChange
+  --------------------
+
+  This prop is similiar to the contentSize, that is...it returns height and width of the contents causing the scrolling inside the scrollView... but difference is the contentSize is fired when scrolling happens, while the onContentSizeChange happens when component is mounted.
+
+
+  Summary...
+
+  * contentOffset returns position of scrolling content from safeareaview {x:0, y:0}
+
+  * contentInset returns padding of the scrollingContent within the scrollView {top:,left:, bottom:, right:}
+
+  * contentSize returns height and width of contents inside scrollView, i.e the actual scroll component causing the scrolling... if contentSize.height > scrollView.height, it means scrolling should continue, e.t.c. This fires when scrolling is happening
+
+  * layoutMeasuremet returns height and width of the scrollView itself or rather the outer part of the scroll. This prop is fired when scrolling happens
+
+  * onContentSizeChange returns height and width of contents inside scrollView. Same thing with contentSize, but fired when component is mounted
+
+  * onLayout returns same thing with the layoutMeasurement but fires when component is mounted
   
    */

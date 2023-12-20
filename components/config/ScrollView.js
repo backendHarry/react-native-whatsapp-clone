@@ -25,6 +25,8 @@ export default ScrollView = ({
       height: scrollBarHeight,
       backgroundColor: scrollBarColor,
       position: "absolute",
+      top: 100,
+      bottom: 100,
       zIndex: 1,
       right: 0,
       borderRadius: 10,
