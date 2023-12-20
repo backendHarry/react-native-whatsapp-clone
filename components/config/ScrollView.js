@@ -33,26 +33,26 @@ export default ScrollView = ({
     },
   });
 
-  const scrollIndicator = useRef(new Animated.Value(1)).current;
+  const scrollBarPosition = useRef(new Animated.Value(1)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  const [scrollViewContentHeight, setScrollViewContentHeight] = useState(1);
-  const [scrollViewVisibleHeight, setScrollVisibleHeight] = useState(0);
+  const [outerScrollViewHeight, setOuterScrollViewHeight] = useState(1);
+  const [innerScrollViewHeight, setInnerScrollViewHeight] = useState(1);
 
   const scrollIndicatorSize = scrollBarHeight;
 
-  const scrollDifference =
-    scrollViewVisibleHeight > scrollIndicatorSize
-      ? scrollViewVisibleHeight - scrollIndicatorSize
+  const scrollingSpace =
+    innerScrollViewHeight > scrollIndicatorSize
+      ? innerScrollViewHeight - scrollIndicatorSize
       : 1;
 
-  const scrollIndicatorPosition = Animated.multiply(
-    scrollIndicator,
-    scrollViewVisibleHeight / scrollViewContentHeight
+  const scrollBarAnimatedPosition = Animated.multiply(
+    scrollBarPosition,
+    innerScrollViewHeight / outerScrollViewHeight
   ).interpolate({
-    extrapolateRight: "clamp",
-    inputRange: [0, scrollDifference],
-    outputRange: [0, scrollDifference],
+    extrapolate: "clamp",
+    inputRange: [0, scrollingSpace],
+    outputRange: [0, scrollingSpace],
   });
 
   const fadeIn = () => {
@@ -76,21 +76,21 @@ export default ScrollView = ({
       nestedScrollEnabled={true}
       showsVerticalScrollIndicator={false}
       onContentSizeChange={(_, height) => {
-        setScrollVisibleHeight(height);
+        setInnerScrollViewHeight(height);
       }}
       onLayout={({ nativeEvent }) => {
         const { height: visbleHeight } = nativeEvent.layout;
-        setScrollViewContentHeight(visbleHeight);
+        setOuterScrollViewHeight(visbleHeight);
       }}
       onScroll={({ nativeEvent }) => {
         scrollFunc(nativeEvent);
         scrollHeaderFunc(nativeEvent);
-        scrollIndicator.setValue(nativeEvent.contentOffset.y);
+        scrollBarPosition.setValue(nativeEvent.contentOffset.y);
         centerTextOpacityFunc(nativeEvent);
       }}
       onScrollBeginDrag={fadeIn}
       onScrollEndDrag={fadeOut}
-      scrollEventThrottle={16}
+      scrollEventThrottle={8}
       {...props}
     >
       <Animated.View
@@ -98,7 +98,7 @@ export default ScrollView = ({
           scrollBarStyles.scrollBar,
           {
             opacity: fadeAnim,
-            transform: [{ translateY: scrollIndicatorPosition }],
+            transform: [{ translateY: scrollBarAnimatedPosition }],
           },
         ]}
       />
