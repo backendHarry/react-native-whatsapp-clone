@@ -7,6 +7,7 @@ import {
   VirtualizedList,
   TouchableHighlight,
   Animated,
+  Keyboard,
 } from "react-native";
 import { Link, router, Stack } from "expo-router";
 
@@ -130,6 +131,7 @@ const Home = () => {
               style={{
                 paddingTop: insets.top,
                 paddingBottom: insets.bottom,
+                // marginTop: 10,
               }}
             >
               <View style={styles.centerContainer}>

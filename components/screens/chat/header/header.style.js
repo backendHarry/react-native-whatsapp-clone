@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 1,
     backgroundColor: "rgba(0,0,0,0)",
+    height: "auto",
   },
   chatHeaderContainer: {
     marginLeft: "auto",

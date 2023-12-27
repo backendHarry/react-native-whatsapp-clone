@@ -18,7 +18,7 @@ const Header = () => {
               stroke={COLORS.bluePrimary}
               height={CONSTANTS.iconHeight + 10}
               width={CONSTANTS.iconWidth + 10}
-              strokeWidth={2.5}
+              strokeWidth={1.5}
             />
             <Text style={styles.numberOfMessages}>7</Text>
           </View>

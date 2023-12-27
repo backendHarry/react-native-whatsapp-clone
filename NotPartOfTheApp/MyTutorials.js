@@ -106,6 +106,15 @@ export default Chat;
 
   Check the code above to understand more better, the line with SafeAreaView.
 
+  Hierachy will be
+
+- SafeAreaProvider
+ - KeyboardAvoidingView
+   - View for body styles (which will have a height of 100% since it's the main app view, and will contain the header and keyboard if any)
+     - ScrollView
+       - SafeAreaView
+         - View for container
+
   Next is on Scroll View.. How to understand the mathematics and logic behind it.
   
   First thing is on style and contentContainerStyle
@@ -171,5 +180,8 @@ export default Chat;
   * onContentSizeChange returns height and width of contents inside scrollView. Same thing with contentSize, but fired when component is mounted
 
   * onLayout returns same thing with the layoutMeasurement but fires when component is mounted
+
+
+  Next will be on Animations
   
    */

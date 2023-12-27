@@ -10,9 +10,15 @@ import { CONSTANTS, COLORS } from "../../theme";
 export default ScrollView = ({
   children,
   scrollBarOptions = {},
-  scrollFunc,
-  scrollHeaderFunc,
-  centerTextOpacityFunc,
+  scrollFunc = () => {
+    return;
+  },
+  scrollHeaderFunc = () => {
+    return;
+  },
+  centerTextOpacityFunc = () => {
+    return;
+  },
   ...props
 }) => {
   const scrollBarHeight = scrollBarOptions.height || CONSTANTS.scrollBarHeight;

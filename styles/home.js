@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
   },
 
   chatHeaderTextView: {
-    // marginBottom: 10,
-    // marginTop: 50,
+    marginBottom: 10,
   },
   chatHeaderText: {
     fontSize: SIZES.xxLarge,

@@ -1,14 +1,14 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../theme/index";
 
 const styles = StyleSheet.create({
   chat: {
-    backgroundColor: "black",
+    backgroundColor: COLORS.background,
     flex: 1,
   },
   chatBody: {
-    marginTop: "15%",
-    backgroundColor: "red",
     flexGrow: 1,
+    height: "100%",
   },
 });
 
