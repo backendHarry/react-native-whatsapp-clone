@@ -35,56 +35,43 @@ const Chat = () => {
               style={{
                 paddingTop: insets.top + 10,
                 paddingBottom: insets.bottom + 40,
+                height: "100%",
               }}
             >
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
-              <Text style={{ color: "white" }}>Hello world</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
+              <Text>Hello test</Text>
             </SafeAreaView>
           </ScrollView>
           {/* my blur views */}
@@ -97,3 +84,5 @@ const Chat = () => {
 };
 
 export default Chat;
+
+// fix the scrollbar not scrolling to the bottom of the page

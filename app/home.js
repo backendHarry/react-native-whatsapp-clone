@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   View,
@@ -48,6 +48,8 @@ const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [isScrolledPastHeader, setIsScrolledPastHeader] = useState(false);
 
+  const [hideScrollBar, setHideScrollBar] = useState(true);
+
   const isUserScrolledToBottom = ({
     layoutMeasurement,
     contentOffset,
@@ -95,6 +97,28 @@ const Home = () => {
   };
   // end opacity animation
 
+  const scrollBottomFunction = (nativeEvent) => {
+    if (isUserScrolledToBottom(nativeEvent)) {
+      setIsScrolledToBottom(true);
+      setHideScrollBar(true);
+    }
+    setIsScrolledToBottom(false);
+    setHideScrollBar(true);
+  };
+
+  const scrollHeaderFunc = (nativeEvent) => {
+    if (isUserScrolledPastHeader(nativeEvent)) {
+      setIsScrolledPastHeader(true);
+    }
+    setIsScrolledPastHeader(false);
+  };
+
+  const scrollFunction = (nativeEvent) => {
+    scrollBottomFunction(nativeEvent);
+    scrollHeaderFunc(nativeEvent);
+    runTextAnimation(nativeEvent);
+  };
+
   const insets = useSafeAreaInsets();
 
   return (
@@ -112,26 +136,13 @@ const Home = () => {
       >
         <View style={styles.body}>
           <ScrollView
-            scrollFunc={(nativeEvent) => {
-              if (isUserScrolledToBottom(nativeEvent)) {
-                return setIsScrolledToBottom(true);
-              }
-              return setIsScrolledToBottom(false);
-            }}
-            scrollHeaderFunc={(nativeEvent) => {
-              if (isUserScrolledPastHeader(nativeEvent)) {
-                return setIsScrolledPastHeader(true);
-              }
-
-              return setIsScrolledPastHeader(false);
-            }}
-            centerTextOpacityFunc={runTextAnimation}
+            hideScrollBar={hideScrollBar}
+            scrollPropertiesFunction={scrollFunction}
           >
             <SafeAreaView
               style={{
-                paddingTop: insets.top,
-                paddingBottom: insets.bottom,
-                // marginTop: 10,
+                paddingTop: insets.top + 10,
+                paddingBottom: insets.bottom + 30,
               }}
             >
               <View style={styles.centerContainer}>

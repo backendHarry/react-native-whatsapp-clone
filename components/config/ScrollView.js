@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Animated,
   ScrollView as NativeScrollView,
@@ -9,21 +9,19 @@ import { CONSTANTS, COLORS } from "../../theme";
 
 export default ScrollView = ({
   children,
+  scrollPropertiesFunction = () => {
+    return;
+  },
   scrollBarOptions = {},
-  scrollFunc = () => {
-    return;
-  },
-  scrollHeaderFunc = () => {
-    return;
-  },
-  centerTextOpacityFunc = () => {
-    return;
-  },
+  hideScrollBar,
+  style = {},
   ...props
 }) => {
   const scrollBarHeight = scrollBarOptions.height || CONSTANTS.scrollBarHeight;
   const scrollBarWidth = scrollBarOptions.width || CONSTANTS.scrollBarWidth;
   const scrollBarColor = scrollBarOptions.color || COLORS.searchGrayPlaceholder;
+
+  const [showStatusBar, setShowStatusBar] = useState(false);
 
   const scrollBarStyles = StyleSheet.create({
     scrollBar: {
@@ -36,6 +34,7 @@ export default ScrollView = ({
       zIndex: 1,
       right: 0,
       borderRadius: 10,
+      display: hideScrollBar ? "initial" : "none",
     },
   });
 
@@ -77,8 +76,17 @@ export default ScrollView = ({
     }).start();
   };
 
+  useEffect(() => {
+    if (innerScrollViewHeight - outerScrollViewHeight > 300) {
+      return setShowStatusBar(true);
+    }
+
+    return setShowStatusBar(false);
+  }, [innerScrollViewHeight, outerScrollViewHeight]);
+
   return (
     <NativeScrollView
+      style={style}
       nestedScrollEnabled={true}
       showsVerticalScrollIndicator={false}
       onContentSizeChange={(_, height) => {
@@ -89,10 +97,8 @@ export default ScrollView = ({
         setOuterScrollViewHeight(visbleHeight);
       }}
       onScroll={({ nativeEvent }) => {
-        scrollFunc(nativeEvent);
-        scrollHeaderFunc(nativeEvent);
         scrollBarPosition.setValue(nativeEvent.contentOffset.y);
-        centerTextOpacityFunc(nativeEvent);
+        scrollPropertiesFunction(nativeEvent);
       }}
       onScrollBeginDrag={fadeIn}
       onScrollEndDrag={fadeOut}

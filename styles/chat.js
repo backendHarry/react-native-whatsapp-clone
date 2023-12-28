@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
   },
   chatBody: {
     flexGrow: 1,
-    height: "100%",
   },
 });
 
