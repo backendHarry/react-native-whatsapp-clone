@@ -13,6 +13,8 @@ import styles from "../../styles/chat";
 import ChatHeader from "../../components/screens/chat/header/header.component";
 import TextBoxComponent from "../../components/screens/chat/TextBox/TextBox.component";
 
+import Message from "../../components/screens/chat/message/message.component";
+
 const Chat = () => {
   const insets = useSafeAreaInsets();
 
@@ -30,7 +32,7 @@ const Chat = () => {
         />
 
         <View style={styles.chatBody}>
-          <ScrollView>
+          <ScrollView style={styles.chatBodyContainer}>
             <SafeAreaView
               style={{
                 paddingTop: insets.top + 10,
@@ -38,40 +40,7 @@ const Chat = () => {
                 height: "100%",
               }}
             >
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
-              <Text>Hello test</Text>
+              <Message />
             </SafeAreaView>
           </ScrollView>
           {/* my blur views */}

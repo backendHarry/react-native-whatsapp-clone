@@ -8,6 +8,13 @@ const styles = StyleSheet.create({
   },
   chatBody: {
     flexGrow: 1,
+    height: "100%",
+  },
+  chatBodyContainer: {
+    marginTop: 10,
+    width: "95%",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 });
 
