@@ -48,7 +48,7 @@ const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [isScrolledPastHeader, setIsScrolledPastHeader] = useState(false);
 
-  const [hideScrollBar, setHideScrollBar] = useState(true);
+  const [hideScrollBar, setHideScrollBar] = useState(false);
 
   const isUserScrolledToBottom = ({
     layoutMeasurement,
@@ -97,26 +97,37 @@ const Home = () => {
   };
   // end opacity animation
 
+  // trying to hide status bar before user scrolls to the bottom
+
+  const hideScrollBarFunction = (nativeEvent) => {
+    const offSet = nativeEvent.contentOffset.y;
+    if (offSet > 45 && offSet < 690) {
+      setHideScrollBar(false);
+    } else {
+      setHideScrollBar(true);
+    }
+  };
+
   const scrollBottomFunction = (nativeEvent) => {
     if (isUserScrolledToBottom(nativeEvent)) {
       setIsScrolledToBottom(true);
-      setHideScrollBar(true);
+    } else {
+      setIsScrolledToBottom(false);
     }
-    setIsScrolledToBottom(false);
-    setHideScrollBar(true);
   };
 
   const scrollHeaderFunc = (nativeEvent) => {
     if (isUserScrolledPastHeader(nativeEvent)) {
-      setIsScrolledPastHeader(true);
+      return setIsScrolledPastHeader(true);
     }
-    setIsScrolledPastHeader(false);
+    return setIsScrolledPastHeader(false);
   };
 
   const scrollFunction = (nativeEvent) => {
     scrollBottomFunction(nativeEvent);
     scrollHeaderFunc(nativeEvent);
     runTextAnimation(nativeEvent);
+    hideScrollBarFunction(nativeEvent);
   };
 
   const insets = useSafeAreaInsets();

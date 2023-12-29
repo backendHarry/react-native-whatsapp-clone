@@ -21,8 +21,6 @@ export default ScrollView = ({
   const scrollBarWidth = scrollBarOptions.width || CONSTANTS.scrollBarWidth;
   const scrollBarColor = scrollBarOptions.color || COLORS.searchGrayPlaceholder;
 
-  const [showStatusBar, setShowStatusBar] = useState(false);
-
   const scrollBarStyles = StyleSheet.create({
     scrollBar: {
       width: scrollBarWidth,
@@ -34,7 +32,7 @@ export default ScrollView = ({
       zIndex: 1,
       right: 0,
       borderRadius: 10,
-      display: hideScrollBar ? "initial" : "none",
+      display: hideScrollBar ? "none" : "initial",
     },
   });
 
@@ -75,14 +73,6 @@ export default ScrollView = ({
       useNativeDriver: true,
     }).start();
   };
-
-  useEffect(() => {
-    if (innerScrollViewHeight - outerScrollViewHeight > 300) {
-      return setShowStatusBar(true);
-    }
-
-    return setShowStatusBar(false);
-  }, [innerScrollViewHeight, outerScrollViewHeight]);
 
   return (
     <NativeScrollView
