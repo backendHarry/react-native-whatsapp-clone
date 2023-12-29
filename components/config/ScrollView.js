@@ -13,13 +13,26 @@ export default ScrollView = ({
     return;
   },
   scrollBarOptions = {},
-  hideScrollBar,
+  // hideScrollBar,
   style = {},
   ...props
 }) => {
   const scrollBarHeight = scrollBarOptions.height || CONSTANTS.scrollBarHeight;
   const scrollBarWidth = scrollBarOptions.width || CONSTANTS.scrollBarWidth;
   const scrollBarColor = scrollBarOptions.color || COLORS.searchGrayPlaceholder;
+
+  // hide scrollbar in scrollView
+
+  const [offSetPosition, setOffSetPosition] = useState(0);
+  const [hideScrollBar, setHideScrollBar] = useState(true);
+
+  useEffect(() => {
+    if (offSetPosition > 45 && offSetPosition < 690) {
+      setHideScrollBar(false);
+    } else {
+      setHideScrollBar(true);
+    }
+  }, [offSetPosition]);
 
   const scrollBarStyles = StyleSheet.create({
     scrollBar: {
@@ -87,7 +100,9 @@ export default ScrollView = ({
         setOuterScrollViewHeight(visbleHeight);
       }}
       onScroll={({ nativeEvent }) => {
-        scrollBarPosition.setValue(nativeEvent.contentOffset.y);
+        const offsetVal = nativeEvent.contentOffset.y;
+        scrollBarPosition.setValue(offsetVal);
+        setOffSetPosition(offsetVal);
         scrollPropertiesFunction(nativeEvent);
       }}
       onScrollBeginDrag={fadeIn}

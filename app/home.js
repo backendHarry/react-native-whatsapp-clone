@@ -48,8 +48,6 @@ const Home = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [isScrolledPastHeader, setIsScrolledPastHeader] = useState(false);
 
-  const [hideScrollBar, setHideScrollBar] = useState(false);
-
   const isUserScrolledToBottom = ({
     layoutMeasurement,
     contentOffset,
@@ -97,17 +95,6 @@ const Home = () => {
   };
   // end opacity animation
 
-  // trying to hide status bar before user scrolls to the bottom
-
-  const hideScrollBarFunction = (nativeEvent) => {
-    const offSet = nativeEvent.contentOffset.y;
-    if (offSet > 45 && offSet < 690) {
-      setHideScrollBar(false);
-    } else {
-      setHideScrollBar(true);
-    }
-  };
-
   const scrollBottomFunction = (nativeEvent) => {
     if (isUserScrolledToBottom(nativeEvent)) {
       setIsScrolledToBottom(true);
@@ -127,7 +114,6 @@ const Home = () => {
     scrollBottomFunction(nativeEvent);
     scrollHeaderFunc(nativeEvent);
     runTextAnimation(nativeEvent);
-    hideScrollBarFunction(nativeEvent);
   };
 
   const insets = useSafeAreaInsets();
@@ -146,10 +132,7 @@ const Home = () => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <View style={styles.body}>
-          <ScrollView
-            hideScrollBar={hideScrollBar}
-            scrollPropertiesFunction={scrollFunction}
-          >
+          <ScrollView scrollPropertiesFunction={scrollFunction}>
             <SafeAreaView
               style={{
                 paddingTop: insets.top + 10,
