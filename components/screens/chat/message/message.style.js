@@ -1,19 +1,32 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SIZES } from "../../../../theme/index";
+import { COLORS, SIZES, FONTS } from "../../../../theme/index";
 
 const styles = StyleSheet.create({
   message: {
     backgroundColor: COLORS.primary,
-    paddingVertical: 10,
-    width: "100%",
-    marginLeft: "auto",
+    width: "80%",
     paddingHorizontal: 10,
-    borderRadius: 20,
-    position: "relative",
+    paddingVertical: 10,
+    borderRadius: 15,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    marginVertical: 2,
   },
   messageText: {
-    // flex: 1,
-    flex: 1,
+    color: COLORS.chatWhite,
+    fontSize: SIZES.medium + 1,
+    fontFamily: FONTS.light,
+  },
+  messageTimeAndIsRead: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: "auto",
+    marginTop: 5,
+  },
+  messageTime: {
+    fontSize: 12,
+    color: COLORS.grayTime,
   },
 });
 

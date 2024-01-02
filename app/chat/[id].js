@@ -1,4 +1,4 @@
-import { View, Platform, KeyboardAvoidingView } from "react-native";
+import { View, Platform, KeyboardAvoidingView, FlatList } from "react-native";
 import Text from "../../components/config/Text";
 import { Stack, useGlobalSearchParams } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -13,6 +13,7 @@ import styles from "../../styles/chat";
 import ChatHeader from "../../components/screens/chat/header/header.component";
 import TextBoxComponent from "../../components/screens/chat/TextBox/TextBox.component";
 
+import Messages from "../../data/chat";
 import Message from "../../components/screens/chat/message/message.component";
 
 const Chat = () => {
@@ -40,7 +41,22 @@ const Chat = () => {
                 height: "100%",
               }}
             >
-              <Message />
+              <FlatList
+                data={Messages}
+                renderItem={({ item }) => {
+                  const { id, message, time, chatOwner } = item;
+                  return (
+                    <Message
+                      message={message}
+                      time={time}
+                      chatOwner={chatOwner}
+                      marginVertical={5}
+                    />
+                  );
+                }}
+                keyExtractor={(item) => item.id}
+                scrollEnabled={false}
+              />
             </SafeAreaView>
           </ScrollView>
           {/* my blur views */}
