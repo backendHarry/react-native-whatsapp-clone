@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { View, Platform, KeyboardAvoidingView, FlatList } from "react-native";
 import Text from "../../components/config/Text";
 import { Stack, useGlobalSearchParams } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+
 import {
   SafeAreaProvider,
   SafeAreaView,
@@ -13,11 +14,34 @@ import styles from "../../styles/chat";
 import ChatHeader from "../../components/screens/chat/header/header.component";
 import TextBoxComponent from "../../components/screens/chat/TextBox/TextBox.component";
 
-import Messages from "../../data/chat";
+import MessagesArray from "../../data/chat";
 import Message from "../../components/screens/chat/message/message.component";
 
 const Chat = () => {
   const insets = useSafeAreaInsets();
+
+  const [Messages, setMessages] = useState(MessagesArray);
+
+  // render function for Messages component
+
+  const renderItem = ({ item, index }) => {
+    const { message, time, chatOwner } = item;
+    const nextMessage = Messages[index + 1];
+    const currentMessage = item;
+    const isSameSender =
+      nextMessage && currentMessage.senderId == nextMessage.senderId;
+
+    const margin = isSameSender ? 0 : 15;
+
+    return (
+      <Message
+        message={message}
+        time={time}
+        chatOwner={chatOwner}
+        marginVertical={margin}
+      />
+    );
+  };
 
   return (
     <SafeAreaProvider style={styles.chat}>
@@ -43,17 +67,7 @@ const Chat = () => {
             >
               <FlatList
                 data={Messages}
-                renderItem={({ item }) => {
-                  const { id, message, time, chatOwner } = item;
-                  return (
-                    <Message
-                      message={message}
-                      time={time}
-                      chatOwner={chatOwner}
-                      marginVertical={5}
-                    />
-                  );
-                }}
+                renderItem={renderItem}
                 keyExtractor={(item) => item.id}
                 scrollEnabled={false}
               />
@@ -69,5 +83,3 @@ const Chat = () => {
 };
 
 export default Chat;
-
-// fix the scrollbar not scrolling to the bottom of the page

@@ -10,11 +10,15 @@ const Message = ({ message, time, chatOwner, marginVertical }) => {
     <View
       style={
         chatOwner
-          ? { ...styles.message, marginVertical, marginLeft: "auto" }
+          ? {
+              ...styles.message,
+              marginBottom: marginVertical,
+              marginLeft: "auto",
+            }
           : {
               ...styles.message,
+              marginBottom: marginVertical,
               marginRight: "auto",
-              marginVertical,
               backgroundColor: COLORS.replyBackground,
             }
       }
