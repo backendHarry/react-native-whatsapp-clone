@@ -8,6 +8,7 @@ import {
   PlusIcon,
   CameraIcon,
   VoiceRecord,
+  SendIcon,
 } from "../../../../assets/icons/index";
 
 import { BlurView } from "expo-blur";
@@ -29,8 +30,8 @@ const TextBoxComponent = () => {
       <View style={styles.messageBoxContainer}>
         <PlusIcon
           stroke={COLORS.bluePrimary}
-          height={CONSTANTS.iconHeight + 15}
-          width={CONSTANTS.iconWidth + 20}
+          height={CONSTANTS.iconHeight + 10}
+          width={CONSTANTS.iconWidth + 10}
           strokeWidth={1.25}
         />
         <View style={styles.messageInputContainer}>
@@ -44,21 +45,21 @@ const TextBoxComponent = () => {
           <View style={styles.messageInputIconsIfNotTyping(isTyping)}>
             <CameraIcon
               stroke={COLORS.bluePrimary}
-              height={CONSTANTS.iconHeight + 5}
-              width={CONSTANTS.iconWidth + 10}
+              height={CONSTANTS.iconHeight - 3}
+              width={CONSTANTS.iconWidth}
               strokeWidth={1.5}
             />
             <VoiceRecord
               stroke={COLORS.bluePrimary}
-              height={CONSTANTS.iconHeight + 8}
+              height={CONSTANTS.iconHeight - 3}
               width={CONSTANTS.iconWidth}
               strokeWidth={1}
             />
           </View>
           <View style={styles.messageInputIconWhenTyping(isTyping)}>
-            <VoiceRecord
+            <SendIcon
               stroke={COLORS.bluePrimary}
-              height={CONSTANTS.iconHeight + 8}
+              height={CONSTANTS.iconHeight}
               width={CONSTANTS.iconWidth}
               strokeWidth={1}
             />

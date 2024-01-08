@@ -12,7 +12,8 @@ import PlusIcon from "./plus-icon";
 import PlusIconCircle from "./plus-icon-circle";
 import RightIcon from "./right-icon";
 import SearchIcon from "./search-icon.js";
-import UserProfile from "./user-profile-icon";
+import SettingsIcon from "./settings-icon";
+import SendIcon from "./send-icon";
 import VideoCall from "./video-call-icon";
 import ViewStatus from "./view-status-icon";
 import VoiceRecord from "./voice-record-icon";
@@ -31,7 +32,8 @@ export {
   PlusIconCircle,
   RightIcon,
   SearchIcon,
-  UserProfile,
+  SettingsIcon,
+  SendIcon,
   VideoCall,
   ViewStatus,
   VoiceRecord,

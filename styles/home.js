@@ -33,21 +33,15 @@ const styles = StyleSheet.create({
     color: COLORS.chatWhite,
   },
   chatOptions: {
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "space-between",
-    marginTop: 25,
-    marginBottom: 15,
+    ...centerContainerProps,
+    marginBottom: 20,
   },
   chatOptionText: {
     fontFamily: FONTS.light,
     fontSize: SIZES.medium,
     color: COLORS.bluePrimary,
   },
-  borderDivider: {
-    borderTopColor: COLORS.grayBorder,
-    borderTopWidth: 1,
-  },
+
   conversationContainer: {
     marginTop: 15,
     borderColor: COLORS.grayBorder,

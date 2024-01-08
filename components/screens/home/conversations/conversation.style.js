@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     height: "100%",
     flex: 1,
     borderColor: COLORS.grayBorder,
-    borderTopWidth: 1,
     borderBottomWidth: 1,
     paddingVertical: 5,
     alignItems: "top",

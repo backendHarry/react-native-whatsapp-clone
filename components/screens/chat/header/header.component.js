@@ -23,8 +23,8 @@ const Header = () => {
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <LeftIcon
                 stroke={COLORS.bluePrimary}
-                height={CONSTANTS.iconHeight + 10}
-                width={CONSTANTS.iconWidth + 20}
+                height={CONSTANTS.iconHeight + 5}
+                width={CONSTANTS.iconWidth + 10}
                 strokeWidth={1.5}
               />
               <Text style={styles.numberOfMessages}>7</Text>
@@ -40,13 +40,13 @@ const Header = () => {
         <View style={styles.chatHeaderRight}>
           <VideoCall
             stroke={COLORS.grayIcon}
-            height={CONSTANTS.iconHeight + 10}
-            width={CONSTANTS.iconWidth + 10}
+            height={CONSTANTS.iconHeight + 5}
+            width={CONSTANTS.iconWidth + 5}
           />
           <CallIcon
             stroke={COLORS.grayIcon}
-            height={CONSTANTS.iconHeight + 12}
-            width={CONSTANTS.iconWidth + 5}
+            height={CONSTANTS.iconHeight + 5}
+            width={CONSTANTS.iconWidth}
           />
         </View>
       </View>

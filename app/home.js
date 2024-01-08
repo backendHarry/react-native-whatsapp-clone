@@ -139,15 +139,11 @@ const Home = () => {
                 paddingBottom: insets.bottom + 30,
               }}
             >
-              <View style={styles.centerContainer}>
+              <View style={styles.chatOptions}>
                 <View style={styles.chatHeaderTextView}>
                   <Text style={styles.chatHeaderText}>Chats</Text>
                 </View>
                 <Search />
-                <View style={styles.chatOptions}>
-                  <Text style={styles.chatOptionText}>Broadcast Lists</Text>
-                  <Text style={styles.chatOptionText}>New Group</Text>
-                </View>
               </View>
 
               <VirtualizedList
@@ -168,7 +164,6 @@ const Home = () => {
                 getItemCount={(data) => data.length}
                 getItem={getItem}
                 scrollEnabled={false}
-                style={styles.borderDivider}
               />
 
               <View style={styles.info}>

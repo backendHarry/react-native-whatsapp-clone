@@ -12,7 +12,7 @@ import {
   CallIcon,
   CommunityIcon,
   ChatIcon,
-  UserProfile,
+  SettingsIcon,
 } from "../../../assets/icons/index";
 
 import { COLORS, CONSTANTS } from "../../../theme/index";
@@ -80,13 +80,13 @@ const NavBar = ({ isBottomScrolled }) => {
 
         <View style={styles.navBarItem}>
           <View style={styles.navBarIcon}>
-            <UserProfile
+            <SettingsIcon
               stroke={COLORS.grayIcon}
               height={CONSTANTS.iconHeight + EXTRAHEIGHT}
               width={CONSTANTS.iconWidth + EXTRAWIDTH}
             />
           </View>
-          <Text style={styles.navBarIconDescr}>You</Text>
+          <Text style={styles.navBarIconDescr}>Settings</Text>
         </View>
       </View>
     </BlurView>
