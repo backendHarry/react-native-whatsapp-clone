@@ -4,10 +4,12 @@ import CameraIcon from "./camera-icon";
 import ChatIcon from "./chat-icon";
 import CommunityIcon from "./community-icon";
 import ContactIcon from "./contact-icon";
+import CircleDot from "./circle-dot";
 import DoubleMessage from "./double-message-icon";
 import FilterMessages from "./filter-messages-icon";
 import LeftIcon from "./left-icon";
 import PlusIcon from "./plus-icon";
+import PlusIconCircle from "./plus-icon-circle";
 import RightIcon from "./right-icon";
 import SearchIcon from "./search-icon.js";
 import UserProfile from "./user-profile-icon";
@@ -21,10 +23,12 @@ export {
   ChatIcon,
   CommunityIcon,
   ContactIcon,
+  CircleDot,
   DoubleMessage,
   FilterMessages,
   LeftIcon,
   PlusIcon,
+  PlusIconCircle,
   RightIcon,
   SearchIcon,
   UserProfile,

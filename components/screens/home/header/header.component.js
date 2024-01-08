@@ -2,7 +2,11 @@ import React, { useRef } from "react";
 import { View, Animated } from "react-native";
 import Text from "../../../config/Text";
 import styles from "./header.style";
-import { CameraIcon } from "../../../../assets/icons/index";
+import {
+  CameraIcon,
+  CircleDot,
+  PlusIconCircle,
+} from "../../../../assets/icons/index";
 import { COLORS, CONSTANTS } from "../../../../theme/index";
 import { BlurView } from "expo-blur";
 
@@ -15,7 +19,12 @@ const Header = ({ isHeaderScrolledPast, opacityAnimStyle }) => {
     >
       <View style={styles.headerContainer}>
         <View style={styles.headerLeft}>
-          <Text style={styles.headerLeftText}>Edit</Text>
+          <CircleDot
+            stroke={COLORS.bluePrimary}
+            height={CONSTANTS.iconHeight}
+            width={CONSTANTS.iconWidth}
+            strokeWidth={CONSTANTS.strokeWidth}
+          />
         </View>
         <Animated.View style={opacityAnimStyle}>
           <Text>Chat</Text>
@@ -27,7 +36,7 @@ const Header = ({ isHeaderScrolledPast, opacityAnimStyle }) => {
             width={CONSTANTS.iconWidth}
           />
 
-          <ContactIcon
+          <PlusIconCircle
             stroke={COLORS.bluePrimary}
             height={CONSTANTS.iconHeight}
             width={CONSTANTS.iconWidth}
