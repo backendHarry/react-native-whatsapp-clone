@@ -40,15 +40,8 @@ const TextBoxComponent = () => {
             onChangeText={setTextMessage}
           />
         </View>
-        <View style={{ width: !isTyping ? "20%" : "auto" }}>
-          <View
-            style={{
-              flexDirection: "row",
-              width: "100%",
-              display: !isTyping ? "initial" : "none",
-              justifyContent: "space-between",
-            }}
-          >
+        <View style={styles.messageInputIconsBasedOnInteraction(isTyping)}>
+          <View style={styles.messageInputIconsIfNotTyping(isTyping)}>
             <CameraIcon
               stroke={COLORS.bluePrimary}
               height={CONSTANTS.iconHeight + 5}
@@ -62,14 +55,7 @@ const TextBoxComponent = () => {
               strokeWidth={1}
             />
           </View>
-          <View
-            style={{
-              alignItems: "center",
-              width: "100%",
-              justifyContent: "space-between",
-              display: isTyping ? "initial" : "none",
-            }}
-          >
+          <View style={styles.messageInputIconWhenTyping(isTyping)}>
             <VoiceRecord
               stroke={COLORS.bluePrimary}
               height={CONSTANTS.iconHeight + 8}

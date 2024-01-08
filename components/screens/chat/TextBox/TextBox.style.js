@@ -39,7 +39,27 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
   },
-  messageInput: {},
+  messageInputIconsBasedOnInteraction: (isTyping) => {
+    return {
+      width: !isTyping ? "20%" : "auto",
+    };
+  },
+  messageInputIconsIfNotTyping: (isTyping) => {
+    return {
+      flexDirection: "row",
+      width: "100%",
+      display: !isTyping ? "initial" : "none",
+      justifyContent: "space-between",
+    };
+  },
+  messageInputIconWhenTyping: (isTyping) => {
+    return {
+      alignItems: "center",
+      width: "100%",
+      justifyContent: "space-between",
+      display: isTyping ? "initial" : "none",
+    };
+  },
 });
 
 export default styles;
