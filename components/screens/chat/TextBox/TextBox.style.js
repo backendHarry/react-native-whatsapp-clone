@@ -20,11 +20,12 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   messageInputContainer: {
-    width: "65%",
+    width: "60%",
     backgroundColor: COLORS.replyBackground,
     borderRadius: 50,
     height: 35,
     marginRight: 10,
+    flexGrow: 1,
   },
   textInputStyle: {
     height: "100%",
